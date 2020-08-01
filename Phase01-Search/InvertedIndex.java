@@ -2,10 +2,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class InvertedIndex {
-    public HashMap<String, ArrayList<Integer>> dictMap;
+    private HashMap<String, ArrayList<Integer>> dictMap;
 
-    public InvertedIndex() {
-        dictMap = new HashMap<>();
+    public InvertedIndex(HashMap<String, ArrayList<Integer>> dictMap) {
+        this.dictMap = dictMap;
     }
 
     public void makeChanges(String newDocument, int documentID) {
@@ -30,4 +30,5 @@ public class InvertedIndex {
             System.out.println("Not Founded!");
         }
     }
+
 }
