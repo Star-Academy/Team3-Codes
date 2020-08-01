@@ -20,15 +20,4 @@ public class InvertedIndex {
             }
         }
     }
-
-    public void printAllDocumentNumbers(String query) {
-        if (dictMap.containsKey(query)) {
-            for (Integer i : dictMap.get(query)) {
-                System.out.print(i + " ");
-            }
-        } else {
-            System.out.println("Not Founded!");
-        }
-    }
-
 }

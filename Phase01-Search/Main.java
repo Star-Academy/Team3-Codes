@@ -1,6 +1,3 @@
-import javafx.scene.control.skin.CellSkinBase;
-
-import javax.swing.*;
 import java.io.IOException;
 import java.nio.file.DirectoryStream;
 import java.nio.file.Files;
@@ -19,17 +16,13 @@ public class  Main {
         fillingTheMap();
         if(tokens.containsKey(word.toLowerCase()))
              for (Integer integer : tokens.get(word.toLowerCase())) {
-                 System.out.println(integer);
+                 System.out.print(integer + " ");
               }
         else
             System.err.println("The word does not exist !");
 
 
     }
-
-
-
-
 
     public static void fillingTheMap(){
         InvertedIndex invertedIndex = new InvertedIndex(tokens);
