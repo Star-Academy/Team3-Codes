@@ -15,9 +15,19 @@ public class InvertedIndex {
             if (!dictMap.containsKey(str)) {
                 dictMap.put(str, new ArrayList<>());
             }
-            if (!dictMap.get(str).contains(documentID)){
+            if (!dictMap.get(str).contains(documentID)) {
                 dictMap.get(str).add(documentID);
             }
+        }
+    }
+
+    public void printAllDocumentNumbers(String query) {
+        if (dictMap.containsKey(query)) {
+            for (Integer i : dictMap.get(query)) {
+                System.out.print(i + " ");
+            }
+        } else {
+            System.out.println("Not Founded!");
         }
     }
 }
