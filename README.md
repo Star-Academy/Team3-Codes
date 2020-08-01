@@ -1,4 +1,7 @@
 # Team3-Codes
-Code of Team Three, Code Star Academy Internship
+# Description
+Codes of Team Three in the Code Star Academy Internship
+# Contributers
+Kimia Noorbakhsh
 
-Kimia Noorbakhsh, Mahla Sharifi
+Mahla Sharifi
