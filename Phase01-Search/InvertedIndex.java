@@ -15,7 +15,9 @@ public class InvertedIndex {
             if (!dictMap.containsKey(str)) {
                 dictMap.put(str, new ArrayList<>());
             }
-            dictMap.get(str).add(documentID);
+            if (!dictMap.get(str).contains(documentID)){
+                dictMap.get(str).add(documentID);
+            }
         }
     }
 }
