@@ -10,7 +10,7 @@ import java.util.Scanner;
 public class  Main {
     static HashMap<String, ArrayList<Integer>> tokens = new HashMap<>();
     public static void main(String[] args) {
-
+        System.out.println("Hi");
         Scanner scanner = new Scanner(System.in);
         String word = scanner.nextLine();
         fillingTheMap();
