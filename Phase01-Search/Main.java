@@ -1,4 +1,4 @@
-import java.io.FilterInputStream;
+
 import java.io.IOException;
 import java.nio.file.DirectoryStream;
 import java.nio.file.Files;
@@ -9,6 +9,7 @@ import java.util.HashMap;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
 
 public class Main {
     static HashMap<String, ArrayList<Integer>> tokens = new HashMap<>();
@@ -65,39 +66,12 @@ public class Main {
         return wordsThatMatch;
     }
 
+
     public static ArrayList<Integer> andAll(ArrayList<String> array) {
-        ArrayList<Integer> andOfNoneSignWords = new ArrayList<>();
-        String first = null;
-        if (array.size() != 0) {
-            first = array.get(0);
-        }
-        if (array.size() == 1) {
-            return tokens.get(first);
-        }
-        if (array.size() >= 2) {
-            andOfNoneSignWords = Arithmetic.and(tokens.get(first), tokens.get(array.get(1)));
-        }
-        for (int i = 2; i < array.size(); i++) {
-            andOfNoneSignWords = Arithmetic.and(andOfNoneSignWords, tokens.get(array.get(i)));
-        }
-        return andOfNoneSignWords;
+        return array.stream().map(a -> tokens.get(a)).reduce((a,b)-> Arithmetic.and(a,b)).orElse(new ArrayList<>());
     }
 
     public static ArrayList<Integer> orAll(ArrayList<String> array) {
-        ArrayList<Integer> andOfNoneSignWords = new ArrayList<>();
-        String first = null;
-        if (array.size() != 0) {
-            first = array.get(0);
-        }
-        if (array.size() == 1) {
-            return tokens.get(first);
-        }
-        if (array.size() >= 2) {
-            andOfNoneSignWords = Arithmetic.or(tokens.get(first), tokens.get(array.get(1)));
-        }
-        for (int i = 2; i < array.size(); i++) {
-            andOfNoneSignWords = Arithmetic.or(andOfNoneSignWords, tokens.get(array.get(i)));
-        }
-        return andOfNoneSignWords;
+        return array.stream().map(a -> tokens.get(a)).reduce((a,b)-> Arithmetic.or(a,b)).orElse(new ArrayList<>());
     }
 }
