@@ -47,7 +47,7 @@ public class Main {
     }
 
     public static void assortTheWords(String input) {
-        String[] splitInput = input.split(" ");
+        String[] splitInput = input.toLowerCase().split(" ");
         Pattern pattern = Pattern.compile("(\\+|-)(\\w*)");
 
         for (String s : splitInput) {
