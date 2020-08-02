@@ -29,10 +29,10 @@ public class  Main {
         FileReader fileReader = new FileReader();
 
         try {
-            DirectoryStream<Path> directoryStream = Files.newDirectoryStream(Paths.get("Phase01-Search\\Docs"));
+            DirectoryStream<Path> directoryStream = Files.newDirectoryStream(Paths.get("Docs"));
             int i = 0 ;
             for (Path p : directoryStream) {
-                invertedIndex.makeChanges(fileReader.getFileContents("Phase01-Search\\Docs\\"+p.getFileName().toString()),i);
+                invertedIndex.makeChanges(fileReader.getFileContents("Docs\\"+p.getFileName().toString()),i);
                 i++ ;
             }
         } catch (IOException ex) {
