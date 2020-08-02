@@ -13,23 +13,22 @@ import java.util.regex.Pattern;
 
 public class Main {
     static HashMap<String, ArrayList<Integer>> tokens = new HashMap<>();
-    static ArrayList<String> wordsWithPlusSign = new ArrayList<>();
-    static ArrayList<String> wordsWithMinusSign = new ArrayList<>();
-    static ArrayList<String> noneSignWords = new ArrayList<>();
+
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         String input = scanner.nextLine();
         fillTheMap();
 
-        wordsWithPlusSign = assortTheWords(input,"(\\+)(\\w*)",2);
-        wordsWithMinusSign = assortTheWords(input,"(-)(\\w*)",2);
-        noneSignWords = assortTheWords(input,"^(\\w*)",1);
-        ArrayList<Integer> afterAndNonSign = andAll(noneSignWords);
-        ArrayList<Integer> afterOrPlusSign = orAll(wordsWithPlusSign);
-        ArrayList<Integer> beforeMinus = Arithmetic.and(afterAndNonSign, afterOrPlusSign);
-        ArrayList<Integer> orOfminus = orAll(wordsWithMinusSign);
-        ArrayList<Integer> result = Arithmetic.subtract(beforeMinus, orOfminus);
+        ArrayList<String> wordsWithPlusSign = assortTheWords(input,"(\\+)(\\w*)",2);
+        ArrayList<String> wordsWithMinusSign = assortTheWords(input,"(-)(\\w*)",2);
+        ArrayList<String> noneSignWords = assortTheWords(input,"^(\\w*)",1);
+
+
+        ArrayList<Integer> beforeMinus = Arithmetic.and(andAll(noneSignWords),orAll(wordsWithPlusSign));
+        ArrayList<Integer> result = Arithmetic.subtract(beforeMinus, orAll(wordsWithMinusSign));
+
+
         for (Integer integer : result) {
             System.out.print(integer + " ");
         }
