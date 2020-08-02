@@ -1,3 +1,4 @@
+import java.io.FilterInputStream;
 import java.io.IOException;
 import java.nio.file.DirectoryStream;
 import java.nio.file.Files;
@@ -19,7 +20,10 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         String input = scanner.nextLine();
         fillTheMap();
-        assortTheWords(input);
+
+        wordsWithPlusSign = assortTheWords(input,"(\\+)(\\w*)",2);
+        wordsWithMinusSign = assortTheWords(input,"(-)(\\w*)",2);
+        noneSignWords = assortTheWords(input,"^(\\w*)",1);
         ArrayList<Integer> afterAndNonSign = andAll(noneSignWords);
         ArrayList<Integer> afterOrPlusSign = orAll(wordsWithPlusSign);
         ArrayList<Integer> beforeMinus = Arithmetic.and(afterAndNonSign, afterOrPlusSign);
@@ -46,26 +50,19 @@ public class Main {
         }
     }
 
-    public static void assortTheWords(String input) {
-        String[] splitInput = input.toLowerCase().split(" ");
-        Pattern pattern = Pattern.compile("(\\+|-)(\\w*)");
+    public static ArrayList<String> assortTheWords(String input , String regex , int groupOfWordInRegex) {
+
+        ArrayList<String> wordsThatMatch = new ArrayList<>();
+        Pattern pattern = Pattern.compile(regex);
+        String[] splitInput = input.split(" ");
 
         for (String s : splitInput) {
             Matcher matcher = pattern.matcher(s);
             if (matcher.matches()) {
-                switch (matcher.group(1)) {
-                    case "+":
-                        wordsWithPlusSign.add(matcher.group(2));
-                        break;
-
-                    case "-":
-                        wordsWithMinusSign.add(matcher.group(2));
-                        break;
-                }
-            } else
-                noneSignWords.add(s);
+                wordsThatMatch.add(matcher.group(groupOfWordInRegex));
+            }
         }
-
+        return wordsThatMatch;
     }
 
     public static ArrayList<Integer> andAll(ArrayList<String> array) {

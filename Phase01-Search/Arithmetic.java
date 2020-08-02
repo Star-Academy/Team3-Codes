@@ -24,9 +24,11 @@ public class Arithmetic {
         return temp;
     }
 
-    public static ArrayList<Integer> subtract(ArrayList<Integer> arr1, ArrayList<Integer> arr2) {
+    public static ArrayList<Integer> subtract(ArrayList<Integer> arr1, ArrayList<Integer>... arr2) {
         ArrayList<Integer> temp = new ArrayList<Integer>(arr1);
-        temp.removeAll(arr2);
+        for (ArrayList<Integer> integers : arr2) {
+            temp.removeAll(integers);
+        }
         return temp;
     }
 }
