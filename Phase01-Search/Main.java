@@ -1,5 +1,4 @@
-import javafx.css.Match;
-
+import java.io.FilterInputStream;
 import java.io.IOException;
 import java.nio.file.DirectoryStream;
 import java.nio.file.Files;
@@ -11,7 +10,7 @@ import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class  Main {
+public class Main {
     static HashMap<String, ArrayList<Integer>> tokens = new HashMap<>();
     static ArrayList<String> wordsWithPlusSign = new ArrayList<>();
     static ArrayList<String> wordsWithMinusSign = new ArrayList<>();
@@ -22,39 +21,37 @@ public class  Main {
         String input = scanner.nextLine();
         fillTheMap();
         assortTheWords(input);
-//        if(tokens.containsKey(word.toLowerCase()))
-//             for (Integer integer : tokens.get(word.toLowerCase())) {
-//                 System.out.print(integer + " ");
-//              }
-//        else
-//            System.err.println("The word does not exist !");
-
-
+        // if(tokens.containsKey(word.toLowerCase()))
+        // for (Integer integer : tokens.get(word.toLowerCase())) {
+        // System.out.print(integer + " ");
+        // }
+        // else
+        // System.err.println("The word does not exist !");
     }
 
-    public static void fillTheMap(){
+    public static void fillTheMap() {
         InvertedIndex invertedIndex = new InvertedIndex(tokens);
         FileReader fileReader = new FileReader();
 
         try {
             DirectoryStream<Path> directoryStream = Files.newDirectoryStream(Paths.get("Docs"));
-            int i = 0 ;
+            int i = 0;
             for (Path p : directoryStream) {
-                invertedIndex.makeChanges(fileReader.getFileContents("Docs\\"+p.getFileName().toString()),i);
-                i++ ;
+                invertedIndex.makeChanges(fileReader.getFileContents("Docs\\" + p.getFileName().toString()), i);
+                i++;
             }
         } catch (IOException ex) {
             ex.printStackTrace();
         }
     }
 
-    public static void assortTheWords(String input){
+    public static void assortTheWords(String input) {
         String[] splitInput = input.split(" ");
         Pattern pattern = Pattern.compile("(\\+|-)(\\w*)");
 
         for (String s : splitInput) {
             Matcher matcher = pattern.matcher(s);
-            if(matcher.matches()) {
+            if (matcher.matches()) {
                 switch (matcher.group(1)) {
                     case "+":
                         wordsWithPlusSign.add(matcher.group(2));
@@ -64,10 +61,22 @@ public class  Main {
                         wordsWithMinusSign.add(matcher.group(2));
                         break;
                 }
-            }
-            else
+            } else
                 noneSignWords.add(s);
         }
 
+    }
+
+    public static ArrayList<Integer> andNoneSignWords() {
+        ArrayList<Integer> andOfNoneSignWords = new ArrayList<>();
+        String first = null;
+        if (noneSignWords.size() != 0) {
+            first = noneSignWords.get(0);
+        }
+        andOfNoneSignWords = Arithmetic.and(tokens.get(first), tokens.get(noneSignWords.get(1)));
+        for (int i = 2; i < noneSignWords.size(); i++) {
+            andOfNoneSignWords = Arithmetic.and(andOfNoneSignWords, tokens.get(noneSignWords.get(i)));
+        }
+        return andOfNoneSignWords;
     }
 }
