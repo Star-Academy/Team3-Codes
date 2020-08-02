@@ -21,6 +21,9 @@ public class Main {
         String input = scanner.nextLine();
         fillTheMap();
         assortTheWords(input);
+        ArrayList<Integer> afterAndNonSign = andAll(noneSignWords);
+        ArrayList<Integer> afterOrPlusSign = andAll(wordsWithPlusSign);
+        ArrayList<Integer> beforeMinus = Arithmetic.and(afterAndNonSign, afterOrPlusSign);
         // if(tokens.containsKey(word.toLowerCase()))
         // for (Integer integer : tokens.get(word.toLowerCase())) {
         // System.out.print(integer + " ");
@@ -67,15 +70,38 @@ public class Main {
 
     }
 
-    public static ArrayList<Integer> andNoneSignWords() {
+    public static ArrayList<Integer> andAll(ArrayList<String> array) {
         ArrayList<Integer> andOfNoneSignWords = new ArrayList<>();
         String first = null;
-        if (noneSignWords.size() != 0) {
-            first = noneSignWords.get(0);
+        if (array.size() != 0) {
+            first = array.get(0);
         }
-        andOfNoneSignWords = Arithmetic.and(tokens.get(first), tokens.get(noneSignWords.get(1)));
-        for (int i = 2; i < noneSignWords.size(); i++) {
-            andOfNoneSignWords = Arithmetic.and(andOfNoneSignWords, tokens.get(noneSignWords.get(i)));
+        if (array.size() == 1) {
+            return tokens.get(first);
+        }
+        if (array.size() >= 2) {
+            andOfNoneSignWords = Arithmetic.and(tokens.get(first), tokens.get(array.get(1)));
+        }
+        for (int i = 2; i < array.size(); i++) {
+            andOfNoneSignWords = Arithmetic.and(andOfNoneSignWords, tokens.get(array.get(i)));
+        }
+        return andOfNoneSignWords;
+    }
+
+    public static ArrayList<Integer> orAll(ArrayList<String> array) {
+        ArrayList<Integer> andOfNoneSignWords = new ArrayList<>();
+        String first = null;
+        if (array.size() != 0) {
+            first = array.get(0);
+        }
+        if (array.size() == 1) {
+            return tokens.get(first);
+        }
+        if (array.size() >= 2) {
+            andOfNoneSignWords = Arithmetic.or(tokens.get(first), tokens.get(array.get(1)));
+        }
+        for (int i = 2; i < array.size(); i++) {
+            andOfNoneSignWords = Arithmetic.or(andOfNoneSignWords, tokens.get(array.get(i)));
         }
         return andOfNoneSignWords;
     }
