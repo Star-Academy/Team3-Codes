@@ -22,14 +22,13 @@ public class Main {
         fillTheMap();
         assortTheWords(input);
         ArrayList<Integer> afterAndNonSign = andAll(noneSignWords);
-        ArrayList<Integer> afterOrPlusSign = andAll(wordsWithPlusSign);
+        ArrayList<Integer> afterOrPlusSign = orAll(wordsWithPlusSign);
         ArrayList<Integer> beforeMinus = Arithmetic.and(afterAndNonSign, afterOrPlusSign);
-        // if(tokens.containsKey(word.toLowerCase()))
-        // for (Integer integer : tokens.get(word.toLowerCase())) {
-        // System.out.print(integer + " ");
-        // }
-        // else
-        // System.err.println("The word does not exist !");
+        ArrayList<Integer> orOfminus = orAll(wordsWithMinusSign);
+        ArrayList<Integer> result = Arithmetic.subtract(beforeMinus, orOfminus);
+        for (Integer integer : result) {
+            System.out.print(integer + " ");
+        }
     }
 
     public static void fillTheMap() {
