@@ -26,11 +26,17 @@ public class Arithmetic {
     }
 
     public static ArrayList<Integer> andAll(ArrayList<String> array, HashMap<String, ArrayList<Integer>> tokens) {
-        return array.stream().map(a -> tokens.get(a)).reduce((a, b) -> Arithmetic.and(a, b)).orElse(new ArrayList<>());
+        return array.stream()
+        .map(a -> tokens.get(a))
+        .reduce((a, b) -> Arithmetic.and(a, b))
+        .orElse(new ArrayList<>());
     }
 
     public static ArrayList<Integer> orAll(ArrayList<String> array, HashMap<String, ArrayList<Integer>> tokens) {
-        return array.stream().map(a -> tokens.get(a)).reduce((a, b) -> Arithmetic.or(a, b)).orElse(new ArrayList<>());
+        return array.stream()
+        .map(a -> tokens.get(a))
+        .reduce((a, b) -> Arithmetic
+        .or(a, b)).orElse(new ArrayList<>());
     }
 
 }
