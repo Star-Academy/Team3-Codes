@@ -22,14 +22,15 @@ public class Main {
         ArrayList<String> wordsWithMinusSign = assortTheWords(input, "(-)(\\w*)", 2);
         ArrayList<String> noneSignWords = assortTheWords(input, "^(\\w*)", 1);
 
-        ArrayList<Integer> beforeMinus = Arithmetic.and(andAll(noneSignWords), orAll(wordsWithPlusSign));
+        ArrayList<Integer> beforeMinus = Arithmetic.and(Arithmetic.andAll(noneSignWords, tokens),
+                Arithmetic.orAll(wordsWithPlusSign, tokens));
 
         if (beforeMinus.size() == 0) {
             for (int i = 0; i < numberOfDocs; i++)
                 beforeMinus.add(i);
         }
 
-        ArrayList<Integer> result = Arithmetic.subtract(beforeMinus, orAll(wordsWithMinusSign));
+        ArrayList<Integer> result = Arithmetic.subtract(beforeMinus, Arithmetic.orAll(wordsWithMinusSign, tokens));
 
         for (Integer integer : result) {
             System.out.print(integer + " ");
@@ -39,12 +40,11 @@ public class Main {
 
     public static int fillTheMap() {
         InvertedIndex invertedIndex = new InvertedIndex(tokens);
-        FileReader fileReader = new FileReader();
         int i = 0;
         try {
             DirectoryStream<Path> directoryStream = Files.newDirectoryStream(Paths.get("Docs"));
             for (Path p : directoryStream) {
-                invertedIndex.makeChanges(fileReader.getFileContents("Docs\\" + p.getFileName().toString()), i);
+                invertedIndex.makeChanges(FileReader.getFileContents("Docs\\" + p.getFileName().toString()), i);
                 i++;
             }
         } catch (IOException ex) {
@@ -61,18 +61,9 @@ public class Main {
 
         for (String s : splitInput) {
             Matcher matcher = pattern.matcher(s);
-            if (matcher.matches()) {
+            if (matcher.matches())
                 wordsThatMatch.add(matcher.group(groupOfWordInRegex));
-            }
         }
         return wordsThatMatch;
-    }
-
-    public static ArrayList<Integer> andAll(ArrayList<String> array) {
-        return array.stream().map(a -> tokens.get(a)).reduce((a, b) -> Arithmetic.and(a, b)).orElse(new ArrayList<>());
-    }
-
-    public static ArrayList<Integer> orAll(ArrayList<String> array) {
-        return array.stream().map(a -> tokens.get(a)).reduce((a, b) -> Arithmetic.or(a, b)).orElse(new ArrayList<>());
     }
 }
