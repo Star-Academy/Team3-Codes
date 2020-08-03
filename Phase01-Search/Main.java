@@ -11,31 +11,35 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Main {
+    static Scanner scanner = new Scanner(System.in);
     static HashMap<String, ArrayList<Integer>> tokens = new HashMap<>();
+    static final String PLUS_REGEX = "(\\+)(\\w*)";
+    static final String MINUS_REGEX = "(-)(\\w*)";
+    static final String NONE_SIGN_REGEX = "^(\\w*)";
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        String input = scanner.nextLine();
         int numberOfDocs = fillTheMap();
+        
+        for (Integer integer : process(scanner.nextLine(), numberOfDocs))
+            System.out.print(integer + " ");
 
-        ArrayList<String> wordsWithPlusSign = assortTheWords(input, "(\\+)(\\w*)", 2);
-        ArrayList<String> wordsWithMinusSign = assortTheWords(input, "(-)(\\w*)", 2);
-        ArrayList<String> noneSignWords = assortTheWords(input, "^(\\w*)", 1);
+        scanner.close();
+    }
+
+    public static ArrayList<Integer> process(String input, int numberOfDocs) {
+        ArrayList<String> wordsWithPlusSign = assortTheWords(input, PLUS_REGEX, 2);
+        ArrayList<String> wordsWithMinusSign = assortTheWords(input, MINUS_REGEX, 2);
+        ArrayList<String> noneSignWords = assortTheWords(input, NONE_SIGN_REGEX, 1);
 
         ArrayList<Integer> beforeMinus = Arithmetic.and(Arithmetic.andAll(noneSignWords, tokens),
                 Arithmetic.orAll(wordsWithPlusSign, tokens));
 
-        if (beforeMinus.size() == 0) {
+        if (beforeMinus.size() == 0)
             for (int i = 0; i < numberOfDocs; i++)
                 beforeMinus.add(i);
-        }
 
-        ArrayList<Integer> result = Arithmetic.subtract(beforeMinus, Arithmetic.orAll(wordsWithMinusSign, tokens));
+        return Arithmetic.subtract(beforeMinus, Arithmetic.orAll(wordsWithMinusSign, tokens));
 
-        for (Integer integer : result) {
-            System.out.print(integer + " ");
-        }
-        scanner.close();
     }
 
     public static int fillTheMap() {
