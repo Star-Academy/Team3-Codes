@@ -10,6 +10,7 @@ import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+
 public class Main {
     static Scanner scanner = new Scanner(System.in);
     static HashMap<String, ArrayList<Integer>> tokens = new HashMap<>();
@@ -19,7 +20,7 @@ public class Main {
 
     public static void main(String[] args) {
         int numberOfDocs = fillTheMap();
-        
+
         for (Integer integer : process(scanner.nextLine(), numberOfDocs))
             System.out.print(integer + " ");
 
@@ -31,14 +32,14 @@ public class Main {
         ArrayList<String> wordsWithMinusSign = assortTheWords(input, MINUS_REGEX, 2);
         ArrayList<String> noneSignWords = assortTheWords(input, NONE_SIGN_REGEX, 1);
 
-        ArrayList<Integer> beforeMinus = Arithmetic.and(Arithmetic.andAll(noneSignWords, tokens),
-                Arithmetic.orAll(wordsWithPlusSign, tokens));
+        ArrayList<Integer> beforeMinus = Arithmetic.doOperation(Arithmetic.andAll(noneSignWords, tokens),
+                Arithmetic.orAll(wordsWithPlusSign, tokens),Arithmetic.Operation.AND);
 
         if (beforeMinus.size() == 0)
             for (int i = 0; i < numberOfDocs; i++)
                 beforeMinus.add(i);
 
-        return Arithmetic.subtract(beforeMinus, Arithmetic.orAll(wordsWithMinusSign, tokens));
+        return Arithmetic.doOperation(beforeMinus, Arithmetic.orAll(wordsWithMinusSign, tokens),Arithmetic.Operation.SUBTRACT);
 
     }
 
