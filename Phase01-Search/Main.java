@@ -10,37 +10,33 @@ import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-
 public class Main {
     static HashMap<String, ArrayList<Integer>> tokens = new HashMap<>();
-
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         String input = scanner.nextLine();
         int numberOfDocs = fillTheMap();
 
-        ArrayList<String> wordsWithPlusSign = assortTheWords(input,"(\\+)(\\w*)",2);
-        ArrayList<String> wordsWithMinusSign = assortTheWords(input,"(-)(\\w*)",2);
-        ArrayList<String> noneSignWords = assortTheWords(input,"^(\\w*)",1);
+        ArrayList<String> wordsWithPlusSign = assortTheWords(input, "(\\+)(\\w*)", 2);
+        ArrayList<String> wordsWithMinusSign = assortTheWords(input, "(-)(\\w*)", 2);
+        ArrayList<String> noneSignWords = assortTheWords(input, "^(\\w*)", 1);
 
+        ArrayList<Integer> beforeMinus = Arithmetic.and(andAll(noneSignWords), orAll(wordsWithPlusSign));
 
-        ArrayList<Integer> beforeMinus = Arithmetic.and(andAll(noneSignWords),orAll(wordsWithPlusSign));
-
-        if(beforeMinus.size() == 0){
-            for (int i =0 ; i < numberOfDocs ; i++)
+        if (beforeMinus.size() == 0) {
+            for (int i = 0; i < numberOfDocs; i++)
                 beforeMinus.add(i);
         }
 
         ArrayList<Integer> result = Arithmetic.subtract(beforeMinus, orAll(wordsWithMinusSign));
-
 
         for (Integer integer : result) {
             System.out.print(integer + " ");
         }
         scanner.close();
     }
-//return number of docs
+
     public static int fillTheMap() {
         InvertedIndex invertedIndex = new InvertedIndex(tokens);
         FileReader fileReader = new FileReader();
@@ -54,10 +50,10 @@ public class Main {
         } catch (IOException ex) {
             ex.printStackTrace();
         }
-        return i ;
+        return i;
     }
 
-    public static ArrayList<String> assortTheWords(String input , String regex , int groupOfWordInRegex) {
+    public static ArrayList<String> assortTheWords(String input, String regex, int groupOfWordInRegex) {
 
         ArrayList<String> wordsThatMatch = new ArrayList<>();
         Pattern pattern = Pattern.compile(regex);
@@ -72,12 +68,11 @@ public class Main {
         return wordsThatMatch;
     }
 
-
     public static ArrayList<Integer> andAll(ArrayList<String> array) {
-        return array.stream().map(a -> tokens.get(a)).reduce((a,b)-> Arithmetic.and(a,b)).orElse(new ArrayList<>());
+        return array.stream().map(a -> tokens.get(a)).reduce((a, b) -> Arithmetic.and(a, b)).orElse(new ArrayList<>());
     }
 
     public static ArrayList<Integer> orAll(ArrayList<String> array) {
-        return array.stream().map(a -> tokens.get(a)).reduce((a,b)-> Arithmetic.or(a,b)).orElse(new ArrayList<>());
+        return array.stream().map(a -> tokens.get(a)).reduce((a, b) -> Arithmetic.or(a, b)).orElse(new ArrayList<>());
     }
 }

@@ -23,5 +23,5 @@ public class FileReader {
         }
         input.close();
         return content.toString();
-    } 
+    }
 }
