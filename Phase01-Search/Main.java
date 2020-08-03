@@ -38,6 +38,7 @@ public class Main {
         for (Integer integer : result) {
             System.out.print(integer + " ");
         }
+        scanner.close();
     }
 //return number of docs
     public static int fillTheMap() {
