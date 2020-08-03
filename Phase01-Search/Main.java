@@ -18,7 +18,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         String input = scanner.nextLine();
-        fillTheMap();
+        int numberOfDocs = fillTheMap();
 
         ArrayList<String> wordsWithPlusSign = assortTheWords(input,"(\\+)(\\w*)",2);
         ArrayList<String> wordsWithMinusSign = assortTheWords(input,"(-)(\\w*)",2);
@@ -26,6 +26,12 @@ public class Main {
 
 
         ArrayList<Integer> beforeMinus = Arithmetic.and(andAll(noneSignWords),orAll(wordsWithPlusSign));
+
+        if(beforeMinus.size() == 0){
+            for (int i =0 ; i < numberOfDocs ; i++)
+                beforeMinus.add(i);
+        }
+
         ArrayList<Integer> result = Arithmetic.subtract(beforeMinus, orAll(wordsWithMinusSign));
 
 
@@ -33,14 +39,13 @@ public class Main {
             System.out.print(integer + " ");
         }
     }
-
-    public static void fillTheMap() {
+//return number of docs
+    public static int fillTheMap() {
         InvertedIndex invertedIndex = new InvertedIndex(tokens);
         FileReader fileReader = new FileReader();
-
+        int i = 0;
         try {
             DirectoryStream<Path> directoryStream = Files.newDirectoryStream(Paths.get("Docs"));
-            int i = 0;
             for (Path p : directoryStream) {
                 invertedIndex.makeChanges(fileReader.getFileContents("Docs\\" + p.getFileName().toString()), i);
                 i++;
@@ -48,6 +53,7 @@ public class Main {
         } catch (IOException ex) {
             ex.printStackTrace();
         }
+        return i ;
     }
 
     public static ArrayList<String> assortTheWords(String input , String regex , int groupOfWordInRegex) {
