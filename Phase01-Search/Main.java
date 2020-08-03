@@ -33,13 +33,13 @@ public class Main {
         ArrayList<String> noneSignWords = assortTheWords(input, NONE_SIGN_REGEX, 1);
 
         ArrayList<Integer> beforeMinus = Arithmetic.doOperation(Arithmetic.andAll(noneSignWords, tokens),
-                Arithmetic.orAll(wordsWithPlusSign, tokens),Arithmetic.Operation.AND);
+                Arithmetic.orAll(wordsWithPlusSign, tokens),Operation.AND);
 
         if (beforeMinus.size() == 0)
             for (int i = 0; i < numberOfDocs; i++)
                 beforeMinus.add(i);
 
-        return Arithmetic.doOperation(beforeMinus, Arithmetic.orAll(wordsWithMinusSign, tokens),Arithmetic.Operation.SUBTRACT);
+        return Arithmetic.doOperation(beforeMinus, Arithmetic.orAll(wordsWithMinusSign, tokens),Operation.SUBTRACT);
 
     }
 
