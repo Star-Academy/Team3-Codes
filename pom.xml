@@ -4,26 +4,17 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.example</groupId>
-    <artifactId>maven</artifactId>
+    <groupId>groupId</groupId>
+    <artifactId>Team3-Codes</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <!--pom.xml-->
-    <properties>
-        <java.version>1.8</java.version>
-        <maven.compiler.version>3.8.1</maven.compiler.version>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
-    </properties>
-
     <build>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>${maven.compiler.version}</version>
                 <configuration>
-                    <source>9</source>
-                    <target>9</target>
+                    <source>7</source>
+                    <target>7</target>
                 </configuration>
             </plugin>
         </plugins>
@@ -35,5 +26,9 @@
             <version>4.12</version>
             <scope>test</scope>
         </dependency>
+
     </dependencies>
+
+
+    
 </project>
