@@ -26,19 +26,15 @@ public class InvertedIndexTest {
     public void updateTheMapTest() {
 
         scanner = new Scanner("The sky , at sunset , looked like a carnivorous flower .");
-      
-      
         InvertedIndex invertedIndex = new InvertedIndex(mapOfTheWords);
         invertedIndex.updateTheMap(scanner.nextLine(), 1);
-        
-         assertEquals(mapOfTheWords.get("sky").size(), 2);
-         assertEquals(mapOfTheWords.get("sunset").size(),2);
-         assertEquals(mapOfTheWords.get("tree").size(),1);
-    
-         assertEquals(mapOfTheWords.get("flower").size(),1);
-        
+        assertEquals(mapOfTheWords.get("sky").size(), 2);
+        assertEquals(mapOfTheWords.get("sunset").size(), 2);
+        assertEquals(mapOfTheWords.get("tree").size(), 1);
+        assertEquals(mapOfTheWords.get("flower").size(), 1);
+
         assertEquals(1, 1);
-        
+
     }
-    
+
 }
