@@ -10,15 +10,15 @@ public class InvertedIndex {
         this.dictMap = dictMap;
     }
 
-    public void makeChanges(String newDocument, int documentID) {
-        String fullToken = newDocument.toLowerCase();
+    public void updateTheMap(String docContent, int docID) {
+        String fullToken = docContent.toLowerCase();
         String[] tokens = fullToken.split(" ");
         for (String str : tokens) {
             if (!dictMap.containsKey(str))
                 dictMap.put(str, new ArrayList<>());
 
-            if (!dictMap.get(str).contains(documentID))
-                dictMap.get(str).add(documentID);
+            if (!dictMap.get(str).contains(docID))
+                dictMap.get(str).add(docID);
         }
     }
 }
