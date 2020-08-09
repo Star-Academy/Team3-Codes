@@ -12,6 +12,7 @@ import java.util.Scanner;
 public class App {
 
     public static void main(String[] args) {
+
         Scanner scanner = new Scanner(System.in);
         Processor processor = new Processor();
         int numberOfDocs = fillTheMap(processor.getTokens());
@@ -22,7 +23,7 @@ public class App {
         scanner.close();
     }
 
-    private static int fillTheMap(HashMap<String, ArrayList<Integer>> tokens) {
+    public static int fillTheMap(HashMap<String, ArrayList<Integer>> tokens) {
         InvertedIndex invertedIndex = new InvertedIndex(tokens);
         String fileName = "Docs";
         int i = 0;
