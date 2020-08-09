@@ -5,7 +5,7 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
 public class FileReaderTest {
-    private String testPath = "resources\\TestDocs\\doc1.txt";
+    private String testPath = "src\\test\\resources\\TestDocs\\doc1.txt";
 
     @Test
     public void getFileContentsTest() {
