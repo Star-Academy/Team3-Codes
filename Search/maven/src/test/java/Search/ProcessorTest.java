@@ -69,7 +69,7 @@ public class ProcessorTest {
 
         fillTheMapTest();
         ArrayList<Integer> actualValue = processor.process("-poems -earth -sun", 3);
-        Integer[] expectedValue = {1,2};
+        Integer[] expectedValue = {0};
 
         assertArrayEquals(expectedValue, actualValue.toArray());
 
