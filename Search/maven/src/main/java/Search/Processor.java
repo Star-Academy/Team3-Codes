@@ -28,6 +28,7 @@ public class Processor {
 
     public ArrayList<Integer> process(String input, int numberOfDocs) {
 
+        // RegexOperator regexOperator = new RegexOperator();
         ArrayList<String> wordsWithPlusSign = RegexOperator.assortTheWords(input, RegexOperator.PLUS_REGEX, 2);
         ArrayList<String> wordsWithMinusSign = RegexOperator.assortTheWords(input, RegexOperator.MINUS_REGEX, 2);
         ArrayList<String> noneSignWords = RegexOperator.assortTheWords(input, RegexOperator.NONE_SIGN_REGEX, 1);
@@ -37,7 +38,7 @@ public class Processor {
 
         // It is for when user input does not have any none sign words or with "+" sign
         // like : "-I -book"
-        if (noneSignWords.isEmpty() && wordsWithPlusSign.isEmpty()){}
+        if (noneSignWords.isEmpty() && wordsWithPlusSign.isEmpty())
             for (int i = 0; i < numberOfDocs; i++)
                 beforeMinus.add(i);
 
