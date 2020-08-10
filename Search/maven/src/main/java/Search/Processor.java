@@ -2,6 +2,7 @@ package Search;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+
 public class Processor {
     private HashMap<String, ArrayList<Integer>> tokens;
     private final Reader reader;
@@ -36,7 +37,7 @@ public class Processor {
 
         // It is for when user input does not have any none sign words or with "+" sign
         // like : "-I -book"
-        if (wordsWithMinusSign.isEmpty() && wordsWithPlusSign.isEmpty())
+        if (noneSignWords.isEmpty() && wordsWithPlusSign.isEmpty()){}
             for (int i = 0; i < numberOfDocs; i++)
                 beforeMinus.add(i);
 

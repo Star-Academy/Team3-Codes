@@ -11,6 +11,7 @@ public class InvertedIndex {
     }
 
     public void updateTheMap(String docContent, int docID) {
+        
         String fullToken = docContent.toLowerCase();
         String[] tokens = fullToken.split(" ");
         for (String str : tokens) {
