@@ -1,0 +1,13 @@
+C:\Users\Kimia\Desktop\DeskTop\Code Star Internship\phase4\bin\Debug\netcoreapp3.1\phase4.exe
+C:\Users\Kimia\Desktop\DeskTop\Code Star Internship\phase4\bin\Debug\netcoreapp3.1\phase4.deps.json
+C:\Users\Kimia\Desktop\DeskTop\Code Star Internship\phase4\bin\Debug\netcoreapp3.1\phase4.runtimeconfig.json
+C:\Users\Kimia\Desktop\DeskTop\Code Star Internship\phase4\bin\Debug\netcoreapp3.1\phase4.runtimeconfig.dev.json
+C:\Users\Kimia\Desktop\DeskTop\Code Star Internship\phase4\bin\Debug\netcoreapp3.1\phase4.dll
+C:\Users\Kimia\Desktop\DeskTop\Code Star Internship\phase4\bin\Debug\netcoreapp3.1\phase4.pdb
+C:\Users\Kimia\Desktop\DeskTop\Code Star Internship\phase4\obj\Debug\netcoreapp3.1\phase4.csprojAssemblyReference.cache
+C:\Users\Kimia\Desktop\DeskTop\Code Star Internship\phase4\obj\Debug\netcoreapp3.1\phase4.AssemblyInfoInputs.cache
+C:\Users\Kimia\Desktop\DeskTop\Code Star Internship\phase4\obj\Debug\netcoreapp3.1\phase4.AssemblyInfo.cs
+C:\Users\Kimia\Desktop\DeskTop\Code Star Internship\phase4\obj\Debug\netcoreapp3.1\phase4.csproj.CoreCompileInputs.cache
+C:\Users\Kimia\Desktop\DeskTop\Code Star Internship\phase4\obj\Debug\netcoreapp3.1\phase4.dll
+C:\Users\Kimia\Desktop\DeskTop\Code Star Internship\phase4\obj\Debug\netcoreapp3.1\phase4.pdb
+C:\Users\Kimia\Desktop\DeskTop\Code Star Internship\phase4\obj\Debug\netcoreapp3.1\phase4.genruntimeconfig.cache
