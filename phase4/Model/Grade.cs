@@ -1,4 +1,4 @@
-namespace phase4.model
+namespace phase4.Model
 {
     public class Grade
     {
