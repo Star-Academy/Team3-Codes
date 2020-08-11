@@ -16,18 +16,30 @@ namespace phase4
             var studentJson = File.ReadAllText(PathStudent);
             var studentInfos = JsonSerializer.Deserialize<List<StudentInfo>>(studentJson);
             var gradeJson = File.ReadAllText(PathScore);
+
             var grades = JsonSerializer.Deserialize<List<Grade>>(gradeJson);
-           
-            var students = studentInfos.Select(new )
+            List<Student> students = studentInfos.Select(s => new Student(s)).ToList();
 
-            students.foreach(a => grades.FindAll(c => ))
-           
+            students.ForEach(a => a.grades = grades.FindAll(c => c.StudentNumber == a.Info.StudentNumber));
+            List<float> averages = students.Select(s => s.GetAverage()).ToList(); 
+             
+            students = students.OrderByDescending(p => p.GetAverage()).ToList();        
 
-        }
-        public List<Grade> FindStudentGrades(List<Grade> grades , int studentNumber){
+             for(int i =0 ; i<3 ; i++){
+                 Console.WriteLine(students[i]);
+             }
+	                   
+         
+            
+
+
+
+        } 
+        public List<Grade> FindStudentGrades(List<Grade> grades, int studentNumber)
+        {
             return (grades.FindAll(a => a.StudentNumber == studentNumber));
         }
     }
-    
+
 
 }

@@ -13,6 +13,7 @@ namespace phase4.Model
         public Student(StudentInfo info)
         {
             Info = info;
+            grades = new List<Grade>();
         }
 
         public StudentInfo Info { get; set; }
@@ -21,6 +22,9 @@ namespace phase4.Model
         public float GetAverage()
         {
             return grades.Sum(x => x.Score) / grades.Capacity;
+        }
+        public override string ToString(){
+            return ""+Info.FirstName+"  "+Info.LastName+"   Average: "+GetAverage();
         }
 
     }
