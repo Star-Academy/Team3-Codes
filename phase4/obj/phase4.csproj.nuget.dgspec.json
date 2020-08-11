@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Kimia\\Desktop\\DeskTop\\Code Star Internship\\phase4\\phase4.csproj": {}
+    "c:\\Users\\Kimia\\Desktop\\DeskTop\\Code Star Internship\\phase4\\phase4.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Kimia\\Desktop\\DeskTop\\Code Star Internship\\phase4\\phase4.csproj": {
+    "c:\\Users\\Kimia\\Desktop\\DeskTop\\Code Star Internship\\phase4\\phase4.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Kimia\\Desktop\\DeskTop\\Code Star Internship\\phase4\\phase4.csproj",
+        "projectUniqueName": "c:\\Users\\Kimia\\Desktop\\DeskTop\\Code Star Internship\\phase4\\phase4.csproj",
         "projectName": "phase4",
-        "projectPath": "C:\\Users\\Kimia\\Desktop\\DeskTop\\Code Star Internship\\phase4\\phase4.csproj",
+        "projectPath": "c:\\Users\\Kimia\\Desktop\\DeskTop\\Code Star Internship\\phase4\\phase4.csproj",
         "packagesPath": "C:\\Users\\Kimia\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Kimia\\Desktop\\DeskTop\\Code Star Internship\\phase4\\obj\\",
+        "outputPath": "c:\\Users\\Kimia\\Desktop\\DeskTop\\Code Star Internship\\phase4\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Kimia\\AppData\\Roaming\\NuGet\\NuGet.Config"

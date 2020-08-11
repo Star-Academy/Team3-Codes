@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace phase4.Model
 {
     public class Student
@@ -7,15 +9,13 @@ namespace phase4.Model
 
         }
 
-        public Student(int studentNumber, string firstName, string lastName)
+        public Student(StudentInfo info)
         {
-            StudentNumber = studentNumber;
-            FirstName = firstName;
-            LastName = lastName;
+            Info = info;
         }
 
-        public int StudentNumber { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
+        public StudentInfo Info { get; set; }
+        public List<Grade> grades { get; set; }
+
     }
 }

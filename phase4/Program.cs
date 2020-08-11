@@ -13,7 +13,7 @@ namespace phase4
         static void Main(string[] args)
         {
             var studentJson = File.ReadAllText(PathStudent);
-            var students = JsonSerializer.Deserialize<List<Student>>(studentJson);
+            var studentInfos = JsonSerializer.Deserialize<List<StudentInfo>>(studentJson);
             var gradeJson = File.ReadAllText(PathScore);
             var Grades = JsonSerializer.Deserialize<List<Grade>>(gradeJson);
             Console.Write("Hi");
