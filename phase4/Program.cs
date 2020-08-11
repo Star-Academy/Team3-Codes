@@ -17,14 +17,16 @@ namespace phase4
             var studentInfos = JsonSerializer.Deserialize<List<StudentInfo>>(studentJson);
             var gradeJson = File.ReadAllText(PathScore);
             var Grades = JsonSerializer.Deserialize<List<Grade>>(gradeJson);
-            // var students = studentInfos.Select(new )
+            List<Student> students = studentInfos.Select(s => new Student(s)).ToList();
             
 
+
         }
-        public List<Grade> FindStudentGrades(List<Grade> grades , int studentNumber){
+        public List<Grade> FindStudentGrades(List<Grade> grades, int studentNumber)
+        {
             return (grades.FindAll(a => a.StudentNumber == studentNumber));
         }
     }
-    
+
 
 }

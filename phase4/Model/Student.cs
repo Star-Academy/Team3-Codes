@@ -13,6 +13,7 @@ namespace phase4.Model
         public Student(StudentInfo info)
         {
             Info = info;
+            grades = new List<Grade>();
         }
 
         public StudentInfo Info { get; set; }
