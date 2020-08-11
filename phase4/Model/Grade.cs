@@ -1,3 +1,4 @@
+using System;
 namespace phase4.Model
 {
     public class Grade
@@ -17,5 +18,9 @@ namespace phase4.Model
         public int StudentNumber { get; set; }
         public string Lesson { get; set; }
         public float Score { get; set; }
+        // public string toString()
+        // {
+        // return StudentNumber + Lesson + Score);
+        // }
     }
 }

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\My NoteBook\\Desktop\\Code Star\\Team3-Codes\\phase4\\phase4.csproj": {}
+    "C:\\Users\\My NoteBook\\Desktop\\Code Star\\Team3-Codes\\phase4\\phase4.csproj": {}
   },
   "projects": {
-    "c:\\Users\\My NoteBook\\Desktop\\Code Star\\Team3-Codes\\phase4\\phase4.csproj": {
+    "C:\\Users\\My NoteBook\\Desktop\\Code Star\\Team3-Codes\\phase4\\phase4.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\My NoteBook\\Desktop\\Code Star\\Team3-Codes\\phase4\\phase4.csproj",
+        "projectUniqueName": "C:\\Users\\My NoteBook\\Desktop\\Code Star\\Team3-Codes\\phase4\\phase4.csproj",
         "projectName": "phase4",
-        "projectPath": "c:\\Users\\My NoteBook\\Desktop\\Code Star\\Team3-Codes\\phase4\\phase4.csproj",
+        "projectPath": "C:\\Users\\My NoteBook\\Desktop\\Code Star\\Team3-Codes\\phase4\\phase4.csproj",
         "packagesPath": "C:\\Users\\My NoteBook\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\My NoteBook\\Desktop\\Code Star\\Team3-Codes\\phase4\\obj\\",
+        "outputPath": "C:\\Users\\My NoteBook\\Desktop\\Code Star\\Team3-Codes\\phase4\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\My NoteBook\\AppData\\Roaming\\NuGet\\NuGet.Config"
