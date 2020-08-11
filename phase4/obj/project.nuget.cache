@@ -4,12 +4,5 @@
   "success": true,
   "projectFilePath": "C:\\Users\\My NoteBook\\Desktop\\Code Star\\Team3-Codes\\phase4\\phase4.csproj",
   "expectedPackageFiles": [],
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file C:\\Users\\My NoteBook\\Desktop\\Code Star\\Team3-Codes\\phase4\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  "logs": []
 }
