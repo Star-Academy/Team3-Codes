@@ -10,7 +10,7 @@ public class RegexOperator {
     static final String MINUS_REGEX = "(-)(\\w*)";
     static final String NONE_SIGN_REGEX = "^(\\w*)";
 
-    public ArrayList<String> assortTheWords(String input, String regex, int groupOfWordInRegex) {
+    public static ArrayList<String> assortTheWords(String input, String regex, int groupOfWordInRegex) {
 
         ArrayList<String> wordsThatMatch = new ArrayList<>();
         Pattern pattern = Pattern.compile(regex);
