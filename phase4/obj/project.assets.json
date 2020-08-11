@@ -8,19 +8,19 @@
     ".NETCoreApp,Version=v3.1": []
   },
   "packageFolders": {
-    "C:\\Users\\Kimia\\.nuget\\packages\\": {}
+    "C:\\Users\\My NoteBook\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Kimia\\Desktop\\DeskTop\\Code Star Internship\\phase4\\phase4.csproj",
+      "projectUniqueName": "c:\\Users\\My NoteBook\\Desktop\\Code Star\\Team3-Codes\\phase4\\phase4.csproj",
       "projectName": "phase4",
-      "projectPath": "C:\\Users\\Kimia\\Desktop\\DeskTop\\Code Star Internship\\phase4\\phase4.csproj",
-      "packagesPath": "C:\\Users\\Kimia\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Kimia\\Desktop\\DeskTop\\Code Star Internship\\phase4\\obj\\",
+      "projectPath": "c:\\Users\\My NoteBook\\Desktop\\Code Star\\Team3-Codes\\phase4\\phase4.csproj",
+      "packagesPath": "C:\\Users\\My NoteBook\\.nuget\\packages\\",
+      "outputPath": "c:\\Users\\My NoteBook\\Desktop\\Code Star\\Team3-Codes\\phase4\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Kimia\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\My NoteBook\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"

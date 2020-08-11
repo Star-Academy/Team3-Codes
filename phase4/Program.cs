@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
 using phase4.Model;
+using System.Linq;
 
 namespace phase4
 {
@@ -16,7 +17,14 @@ namespace phase4
             var studentInfos = JsonSerializer.Deserialize<List<StudentInfo>>(studentJson);
             var gradeJson = File.ReadAllText(PathScore);
             var Grades = JsonSerializer.Deserialize<List<Grade>>(gradeJson);
-            Console.Write("Hi");
+            // var students = studentInfos.Select(new )
+            
+
+        }
+        public List<Grade> FindStudentGrades(List<Grade> grades , int studentNumber){
+            return (grades.FindAll(a => a.StudentNumber == studentNumber));
         }
     }
+    
+
 }
