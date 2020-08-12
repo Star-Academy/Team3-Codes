@@ -11,6 +11,7 @@ namespace phase4
             var reader = new Reader();
             var grades = reader.Read<Grade>("resources\\Scores.json");
             var studentInfos = reader.Read<StudentInfo>("resources\\Students.json");
+            
             var students = studentInfos.Select(s => new Student(s)).ToList();
             students.ForEach(s => s.grades = grades.FindAll(g => g.StudentNumber == s.Info.StudentNumber));
             students = students.OrderByDescending(s => s.GetAverage()).ToList();
