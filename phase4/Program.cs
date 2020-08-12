@@ -15,6 +15,7 @@ namespace phase4
             var students = studentInfos.Select(s => new Student(s)).ToList();
             students.ForEach(s => s.grades = grades.FindAll(g => g.StudentNumber == s.Info.StudentNumber));
             students = students.OrderByDescending(s => s.GetAverage()).ToList();
+            
             foreach( var student in students.Take(3))
                 Console.WriteLine(student);
         }
