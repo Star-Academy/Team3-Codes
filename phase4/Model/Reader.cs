@@ -6,18 +6,11 @@ using System.Text.Json;
 
 namespace phase4.Model
 {
-    class Reader<T>
+    class Reader
     {
-        public string Path { get; set; }
-
-        public Reader(string path)
+        public List<T> Read<T>(string path)
         {
-            Path = path; 
-        }
-
-        public List<T> Read()
-        {
-            var json = File.ReadAllText(Path);
+            var json = File.ReadAllText(path);
             return JsonSerializer.Deserialize<List<T>>(json);
         }
     }

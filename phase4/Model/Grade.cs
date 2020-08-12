@@ -1,13 +1,8 @@
-using System;
+
 namespace phase4.Model
 {
     public class Grade
     {
-        public Grade()
-        {
-
-        }
-
         public Grade(int studentNumber, string lesson, float score)
         {
             StudentNumber = studentNumber;

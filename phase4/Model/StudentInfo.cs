@@ -2,10 +2,6 @@ namespace phase4.Model
 {
     public class StudentInfo
     {
-        public StudentInfo()
-        {
-
-        }
 
         public StudentInfo(int studentNumber, string firstName, string lastName)
         {
