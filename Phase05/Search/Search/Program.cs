@@ -2,7 +2,8 @@
 
 namespace Search
 {
-    public class Class1
+    public class Program
+    // like App.java
     {
     }
 }
