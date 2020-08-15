@@ -1,17 +1,17 @@
 using System.Collections.Generic;
-
+using System.Linq;
 namespace Search.Utils
 {
-    public abstract class Ilogical : IOperation
+    public abstract class LogicalOperation : IOperation
     {
-        public List<int> Apply(List<int> list1, List<int> list2)
-        {
-            throw new System.NotImplementedException();
-        }
+        public abstract List<int> Apply(List<int> list1, List<int> list2);
+        
 
         public List<int> ApplyOnAll(List<string> words, Dictionary<string, List<int>> tokens)
         {
-            throw new System.NotImplementedException();
+            return words.Where(a => tokens.ContainsKey(a))
+                .Select(w => tokens[w])
+                .Aggregate((a, b) => Apply(a, b));
         }
     }
 }
