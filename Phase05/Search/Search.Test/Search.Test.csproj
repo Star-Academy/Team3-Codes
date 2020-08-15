@@ -18,4 +18,15 @@
     <ProjectReference Include="..\Search\Search.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="Resources\doc0.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Resources\doc1.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Resources\doc2.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
 </Project>
