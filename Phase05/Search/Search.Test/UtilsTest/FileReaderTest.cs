@@ -10,6 +10,7 @@ namespace Search.Test.UtilsTest
         [Fact]
         public void MoveNextTest()
         {
+            
             FileReader reader = new FileReader(TestPath);
             Assert.Equal(reader.MoveNext(),true);
         }
