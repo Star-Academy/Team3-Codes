@@ -5,7 +5,7 @@ using System.Collections.Generic;
 namespace Search.Test.UtilsTest
 
 {
-    public abstract class OperationTests
+     public abstract class OperationTests
     {
         protected IOperation Operation ;
         protected List<int> list1 ; 
@@ -18,9 +18,9 @@ namespace Search.Test.UtilsTest
         
         [Fact]
         public void ApplyTest(){
-            var actualValue = Operation.Apply<int>(list1,list2);
+            var actualValue = Operation.Apply(list1,list2);
             Assert.Equal<int>(expectedValue,actualValue);
 
         }
-    }
+     }
 }

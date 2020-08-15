@@ -5,10 +5,6 @@ namespace Search.Model
 {
     public class RegexOperator
     {
-        Regex PLUS_REGEX = new Regex("(\\+)(\\w*)");
-        Regex MINUS_REGEX = new Regex("(-)(\\w*)");
-        Regex NONE_SIGN_REGEX =new Regex("^(\\w*)");
-
          public static List<string> AssortTheWords(string input, Regex regex, int groupOfWordInRegex)
          {
              List<string> wordsThatMatch = new List<string>();

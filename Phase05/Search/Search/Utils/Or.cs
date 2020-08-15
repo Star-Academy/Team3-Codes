@@ -4,15 +4,16 @@ namespace Search.Utils
 {
     public class Or : IOperation
     {
-        public List<T> Apply<T>(List<T> list1, List<T> list2)
+        public List<int> Apply(List<int> list1, List<int> list2)
         {
-            return list1.Concat(list2).ToList();
+            return list1.Concat(list2.FindAll(a => !list1.Contains(a))).ToList();
+            
         }
-        //  public List<T> ApplyOnAll<T>(List<string> words, Dictionary<string, List<T>> tokens)
-        // {
-        //     return words.Select(w => tokens[w])
-        //     .Aggregate((a,b)=>Apply(a,b));
+        public List<int> ApplyOnAll(List<string> words, Dictionary<string, List<int>> tokens)
+        {
+            return words.Where(a => tokens.ContainsKey(a)).Select(w => tokens[w])
+            .Aggregate((a,b)=>Apply(a,b));
 
-        // }
+        }
     }
 }
