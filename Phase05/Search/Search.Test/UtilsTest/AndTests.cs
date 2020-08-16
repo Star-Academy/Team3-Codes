@@ -1,6 +1,6 @@
+  
 using System.Collections.Generic;
 using  Search.Utils ;
-
 
 namespace Search.Test.UtilsTest
 {
@@ -8,7 +8,7 @@ namespace Search.Test.UtilsTest
         public class AndTest : OperationTests
         {
 
-            protected override void Init()
+            protected override void init()
             {
                 Operation = new And();
                 

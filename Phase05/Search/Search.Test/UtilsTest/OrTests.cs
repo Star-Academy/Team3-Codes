@@ -1,3 +1,4 @@
+
 using System.Collections.Generic;
 using  Search.Utils ;
 
@@ -6,7 +7,7 @@ namespace Search.Test.UtilsTest
     public class OrTest : OperationTests
     {
       
-        protected override void Init()
+        protected override void init()
         {
             Operation = new Or();
 

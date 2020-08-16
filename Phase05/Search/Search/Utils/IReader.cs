@@ -1,3 +1,4 @@
+
 namespace Search.Utils
 {
     public interface IReader

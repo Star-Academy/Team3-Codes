@@ -11,8 +11,7 @@ namespace Search.Test.UtilsTest
             
 
 
-        public void InitTokens(){
-          
+        public void initTokens(){
           tokens["first"] = new HashSet<int>{1, 2, 3, 4, 5, 6};
           tokens["bye"] =  new HashSet<int>{2, 3, 4, 7};
           tokens["world"] = new HashSet<int>{1, 2, 7, 8, 10};
@@ -21,8 +20,8 @@ namespace Search.Test.UtilsTest
         }
 
         [Fact]
-        public void SimpleApplyOnAllTestForAndOperation(){
-          InitTokens();
+        public void ApplyOnAllTestForAndOperation(){
+          initTokens();
 
           var words = new List<string>{"world","first"};
           var expectedValue = new HashSet<int> {1,2};
@@ -37,7 +36,7 @@ namespace Search.Test.UtilsTest
 
         [Fact]
         public void ApplyOnAllTestForAndOperationWhenOneWordDoesNotExistInTokens(){
-         InitTokens();
+         initTokens();
 
           var words = new List<string>{"hello","bye"};
           var expectedValue = new HashSet<int> {2, 3, 4, 7};
@@ -51,7 +50,7 @@ namespace Search.Test.UtilsTest
 
         [Fact]
         public void SimpleApplyOnAllTestForOrOperation(){
-          InitTokens();
+          initTokens();
 
           var words = new List<string>{"sky","phone","bye","five"};
           var expectedValue = new HashSet<int> {1 ,4 ,6 ,9 ,11 ,3 ,8 ,2 ,7 };
@@ -66,7 +65,7 @@ namespace Search.Test.UtilsTest
 
         [Fact]
         public void SecondApplyOnAllTestForOrOperation(){
-          InitTokens();
+          initTokens();
 
           var words = new List<string>{"ok","agreement"};
           var expectedValue = new HashSet<int> {};
