@@ -8,7 +8,7 @@ namespace Search
     public class Program
     
     {
-        public static void Main(string[]args)
+        public static void Main(string[] args)
         {
             var reader = new FileReader("Resources");
             var processor  = new Processor(reader);

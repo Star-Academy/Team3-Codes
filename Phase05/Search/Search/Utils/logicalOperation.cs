@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 namespace Search.Utils
@@ -9,9 +10,14 @@ namespace Search.Utils
 
         public List<int> ApplyOnAll(List<string> words, Dictionary<string, List<int>> tokens)
         {
-            return words.Where(a => tokens.ContainsKey(a))
+            if(words.Where(w => tokens.ContainsKey(w)).FirstOrDefault() == null)
+                return new List<int>();
+
+            return words.Where(w => tokens.ContainsKey(w))
                 .Select(w => tokens[w])
                 .Aggregate((a, b) => Apply(a, b));
+             
+           
         }
     }
 }

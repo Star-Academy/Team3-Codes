@@ -10,9 +10,15 @@
             "request": "launch",
             "preLaunchTask": "build",
             // If you have changed target frameworks, make sure to update the program path.
+<<<<<<< HEAD
             "program": "${workspaceFolder}/Search.Test/bin/Debug/netcoreapp3.1/Search.Test.dll",
             "args": [],
             "cwd": "${workspaceFolder}/Search.Test",
+=======
+            "program": "${workspaceFolder}/Search/bin/Debug/netcoreapp3.1/Search.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/Search",
+>>>>>>> f99e02ea2284fae26fc17686a9143e0222944736
             // For more information about the 'console' field, see https://aka.ms/VSCode-CS-LaunchJson-Console
             "console": "internalConsole",
             "stopAtEntry": false
