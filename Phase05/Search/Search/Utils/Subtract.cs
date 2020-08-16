@@ -1,12 +1,13 @@
 using System.Collections.Generic;
-
 namespace Search.Utils
 {
     public class Subtract : IOperation 
     {
-        public List<int> Apply(List<int> list1, List<int> list2)
+        public HashSet<int> Apply(HashSet<int> list1, HashSet<int> list2)
         {
-            return list1.FindAll(a => !list2.Contains(a));
+            HashSet<int> temp = new HashSet<int>(list1);
+            temp.RemoveWhere(a => list2.Contains(a));
+            return temp ;
         }
 
     }

@@ -4,9 +4,11 @@ namespace Search.Utils
 {
     public class Or : LogicalOperation
     {
-        public override List<int> Apply(List<int> list1, List<int> list2)
+        public override HashSet<int> Apply(HashSet<int> list1, HashSet<int> list2)
         {
-            return list1.Concat(list2.FindAll(a => !list1.Contains(a))).ToList();
+            HashSet<int> temp = new HashSet<int>(list1);
+            temp.UnionWith(list2);
+            return temp ;
             
         }
     }

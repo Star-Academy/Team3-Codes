@@ -5,18 +5,18 @@ namespace Search.Model
 {
     public class Processor
     {
-        private Dictionary<string, List<int>>  tokens;
+        private Dictionary<string, HashSet<int>>  tokens;
         private  IReader reader;
         Regex PLUS_REGEX = new Regex("(\\+)(\\w*)");
         Regex MINUS_REGEX = new Regex("(-)(\\w*)");
         Regex NONE_SIGN_REGEX =new Regex("^(\\w*)");
 
     public Processor(IReader reader) {
-        this.tokens = new Dictionary<string, List<int>>(); 
+        this.tokens = new Dictionary<string, HashSet<int>>(); 
         this.reader = reader;
     }
 
-    public Dictionary<string, List<int>> getTokens() {
+    public Dictionary<string, HashSet<int>> getTokens() {
         return this.tokens;
     }
 
@@ -30,14 +30,14 @@ namespace Search.Model
         return i; // return number of documents
     }
 
-    public List<int> process(string input, int numberOfDocs) {
+    public HashSet<int> process(string input, int numberOfDocs) {
         List<string> wordsWithPlusSign = RegexOperator.AssortTheWords(input, PLUS_REGEX, 2);
         List<string> wordsWithMinusSign = RegexOperator.AssortTheWords(input, MINUS_REGEX, 2);
         List<string> noneSignWords = RegexOperator.AssortTheWords(input, NONE_SIGN_REGEX, 1);
         And and = new And();
         Or or = new Or();
         Subtract sub = new Subtract();
-        List<int> beforeMinus = and.Apply(and.ApplyOnAll(noneSignWords, tokens),
+        HashSet<int> beforeMinus = and.Apply(and.ApplyOnAll(noneSignWords, tokens),
                 or.ApplyOnAll(wordsWithPlusSign, tokens));
 
         if (noneSignWords.Count == 0 && wordsWithPlusSign.Count == 0)

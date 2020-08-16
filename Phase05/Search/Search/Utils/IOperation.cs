@@ -1,10 +1,9 @@
 using System.Collections.Generic;
-using System.Linq;
 namespace Search.Utils
 {
     public interface IOperation
     {
-        List<int> Apply(List<int> list1, List<int> list2);
+        HashSet<int> Apply(HashSet<int> list1, HashSet<int> list2);
         
     }
 }

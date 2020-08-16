@@ -1,12 +1,11 @@
 using System.Collections.Generic;
-using System.Linq;
 namespace Search.Model
 {
     public class InvertedIndex
     {
-        private Dictionary<string, List<int>> dictMap;
+        private Dictionary<string, HashSet<int>> dictMap;
 
-        public InvertedIndex(Dictionary<string, List<int>> dictMap)
+        public InvertedIndex(Dictionary<string, HashSet<int>> dictMap)
         {
             this.dictMap = dictMap;
         }
@@ -20,7 +19,7 @@ namespace Search.Model
             foreach (var str in tokensOfThisDoc)
             {
                 if (!dictMap.ContainsKey(str))
-                    dictMap[str] = new List<int>();
+                    dictMap[str] = new HashSet<int>();
 
                 if (!dictMap[str].Contains(docID))
                     dictMap[str].Add(docID);

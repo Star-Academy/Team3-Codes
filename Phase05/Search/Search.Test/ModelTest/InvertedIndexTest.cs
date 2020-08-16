@@ -6,18 +6,18 @@ namespace Search.Test.ModelTest
 {
     public class InvertedIndexTest
     {
-        private static Dictionary<string, List<int>> mapOfTheWords;
+        private static Dictionary<string, HashSet<int>> mapOfTheWords;
 
 
         [Fact]
         public void initMap()
         {
 
-            mapOfTheWords = new Dictionary<string, List<int>>()
+            mapOfTheWords = new Dictionary<string, HashSet<int>>
             {
-                { "sky", new List<int>{2} },
-                { "sunset",new List<int>{1,3} },
-                { "tree", new List<int>{5} }
+                { "sky", new HashSet<int>{2} },
+                { "sunset",new HashSet<int>{1,3} },
+                { "tree", new HashSet<int>{5} }
             };
         }
 

@@ -1,5 +1,4 @@
 using Search.Utils ;
-using System.Linq ;
 using Xunit;
 using System.Collections.Generic;
 namespace Search.Test.UtilsTest
@@ -8,12 +7,12 @@ namespace Search.Test.UtilsTest
      public abstract class OperationTests
     {
         protected IOperation Operation ;
-        protected List<int> list1 ; 
-        protected List<int> list2 ;
-        protected List<int> list3 ; 
-        protected List<int> list4 ;
-        protected List<int> expectedValue ;
-        protected List<int> expectedValue2 ;
+        protected HashSet<int> list1 ; 
+        protected HashSet<int> list2 ;
+        protected HashSet<int> list3 ; 
+        protected HashSet<int> list4 ;
+        protected HashSet<int> expectedValue ;
+        protected HashSet<int> expectedValue2 ;
 
         [Fact]
         protected abstract void init();
@@ -26,7 +25,7 @@ namespace Search.Test.UtilsTest
             Assert.Equal(expectedValue,actualValue);
 
         }
-        
+
         [Fact]
         public void SecondApplyTest(){
             init();
