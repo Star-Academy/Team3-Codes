@@ -15,12 +15,12 @@ namespace Search.Test.UtilsTest
         protected HashSet<int> expectedValue2 ;
 
         [Fact]
-        protected abstract void init();
+        protected abstract void Init();
     
         
         [Fact]
         public void FirstApplyTest(){
-            init();
+            Init();
             var actualValue = Operation.Apply(set1,set2);
             Assert.Equal(expectedValue,actualValue);
 
@@ -28,7 +28,7 @@ namespace Search.Test.UtilsTest
 
         [Fact]
         public void SecondApplyTest(){
-            init();
+            Init();
             var actualValue2 = Operation.Apply(set3,set4);
             Assert.Equal<int>(expectedValue2,actualValue2);
 

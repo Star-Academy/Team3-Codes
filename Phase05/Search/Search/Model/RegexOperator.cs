@@ -7,9 +7,10 @@ namespace Search.Model
     {
          public static List<string> AssortTheWords(string input, Regex regex, int groupOfWordInRegex)
          {
-             List<string> wordsThatMatch = new List<string>();
+             var wordsThatMatch = new List<string>();
              
              var matches = regex.Matches(input);
+             
              if(matches != null)
              {
                  foreach(Match m in matches)

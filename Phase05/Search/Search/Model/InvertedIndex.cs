@@ -10,7 +10,7 @@ namespace Search.Model
             this.dictMap = dictMap;
         }
 
-        public void updateTheMap(string docContent, int docID)
+        public void UpdateTheMap(string docContent, int docID)
         {
 
             var fullToken = docContent.ToLower();

@@ -11,11 +11,12 @@ namespace Search.Test.ModelTest
         [Fact]
         public void AssortTheWordsTest()
         {
-            string input = "It +is a +great -day +to -live ";
-            Regex regex = new Regex("(\\+)(\\w*)");
+            var input = "It +is a +great -day +to -live ";
+            var regex = new Regex("(\\+)(\\w*)");
 
-            List<string> actual = RegexOperator.AssortTheWords(input, regex, 2);
-            List<string> expected =  new string[]{ "is", "great", "to" }.ToList();
+            var actual = RegexOperator.AssortTheWords(input, regex, 2);
+            var expected =  new string[]{ "is", "great", "to" }.ToList();
+
             Assert.Equal(actual,expected);
 
         }

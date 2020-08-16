@@ -16,28 +16,32 @@ namespace Search.Model
         this.reader = reader;
     }
 
-    public Dictionary<string, HashSet<int>> getTokens() {
+    public Dictionary<string, HashSet<int>> GetTokens() {
         return this.tokens;
     }
 
-    public int fillTheMap() {
-        InvertedIndex invertedIndex = new InvertedIndex(tokens);
+    public int FillTheMap() {
+        
+        var invertedIndex = new InvertedIndex(tokens);
         int i = 0;
         while (reader.MoveNext()) {
-            invertedIndex.updateTheMap(reader.Current(), i);
+            invertedIndex.UpdateTheMap(reader.Current(), i);
             i++;
         }
         return i; // return number of documents
     }
 
-    public HashSet<int> process(string input, int numberOfDocs) {
-        List<string> wordsWithPlusSign = RegexOperator.AssortTheWords(input, PLUS_REGEX, 2);
-        List<string> wordsWithMinusSign = RegexOperator.AssortTheWords(input, MINUS_REGEX, 2);
-        List<string> noneSignWords = RegexOperator.AssortTheWords(input, NONE_SIGN_REGEX, 1);
-        And and = new And();
-        Or or = new Or();
-        Subtract sub = new Subtract();
-        HashSet<int> beforeMinus = and.Apply(and.ApplyOnAll(noneSignWords, tokens),
+    public HashSet<int> Process(string input, int numberOfDocs) {
+
+        var wordsWithPlusSign = RegexOperator.AssortTheWords(input, PLUS_REGEX, 2);
+        var wordsWithMinusSign = RegexOperator.AssortTheWords(input, MINUS_REGEX, 2);
+        var noneSignWords = RegexOperator.AssortTheWords(input, NONE_SIGN_REGEX, 1);
+
+        var and = new And();
+        var or = new Or();
+        var sub = new Subtract();
+
+        var beforeMinus = and.Apply(and.ApplyOnAll(noneSignWords, tokens),
                 or.ApplyOnAll(wordsWithPlusSign, tokens));
 
         if (noneSignWords.Count == 0 && wordsWithPlusSign.Count == 0)

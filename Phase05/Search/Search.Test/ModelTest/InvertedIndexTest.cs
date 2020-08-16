@@ -10,7 +10,7 @@ namespace Search.Test.ModelTest
 
 
         [Fact]
-        public void initMap()
+        public void InitMap()
         {
 
             mapOfTheWords = new Dictionary<string, HashSet<int>>
@@ -22,12 +22,13 @@ namespace Search.Test.ModelTest
         }
 
         [Fact]
-        public void updateTheMapTest()
+        public void UpdateTheMapTest()
         {
 
-            string str = "The sky , at sunset , looked like a carnivorous flower .";
+            var str = "The sky , at sunset , looked like a carnivorous flower .";
             InvertedIndex invertedIndex = new InvertedIndex(mapOfTheWords);
-            invertedIndex.updateTheMap(str, 1);
+            invertedIndex.UpdateTheMap(str, 1);
+            
             Assert.Equal(mapOfTheWords["sky"].Count, 2);
             Assert.Equal(mapOfTheWords["sunset"].Count, 2);
             Assert.Equal(mapOfTheWords["tree"].Count, 1);

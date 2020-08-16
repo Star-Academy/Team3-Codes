@@ -6,7 +6,7 @@ namespace Search.Test.UtilsTest
     public class OrTest : OperationTests
     {
       
-        protected override void init()
+        protected override void Init()
         {
             Operation = new Or();
 

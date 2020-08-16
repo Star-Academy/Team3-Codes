@@ -18,10 +18,12 @@ namespace Search.Test.UtilsTest
         [Fact]
         public void CurrentTest()
         {
-            FileReader reader = new FileReader(TestPath);
+            var reader = new FileReader(TestPath);
             reader.MoveNext();
+
             string actual = reader.Current();
             string expected = "The sky , at sunset , looked like a carnivorous flower .";
+            
             Assert.Equal(actual,expected);
         }
         

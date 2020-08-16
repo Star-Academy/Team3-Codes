@@ -8,7 +8,7 @@ namespace Search.Test.UtilsTest
         public class AndTest : OperationTests
         {
 
-            protected override void init()
+            protected override void Init()
             {
                 Operation = new And();
                 

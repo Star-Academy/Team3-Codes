@@ -12,6 +12,7 @@ namespace Search.Test.UtilsTest
 
 
         public void initTokens(){
+          
           tokens["first"] = new HashSet<int>{1, 2, 3, 4, 5, 6};
           tokens["bye"] =  new HashSet<int>{2, 3, 4, 7};
           tokens["world"] = new HashSet<int>{1, 2, 7, 8, 10};
@@ -20,7 +21,7 @@ namespace Search.Test.UtilsTest
         }
 
         [Fact]
-        public void ApplyOnAllTestForAndOperation(){
+        public void SimpleApplyOnAllTestForAndOperation(){
           initTokens();
 
           var words = new List<string>{"world","first"};

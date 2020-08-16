@@ -5,7 +5,7 @@ namespace Search.Test.UtilsTest
 {
     public class SubtractTests : OperationTests
     {
-        protected override void init()
+        protected override void Init()
         {
             Operation = new Subtract();
 
