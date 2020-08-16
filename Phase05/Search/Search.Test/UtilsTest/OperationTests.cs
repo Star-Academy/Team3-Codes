@@ -10,14 +10,25 @@ namespace Search.Test.UtilsTest
         protected IOperation Operation ;
         protected List<int> list1 ; 
         protected List<int> list2 ;
+        protected List<int> list3 ; 
+        protected List<int> list4 ;
         protected List<int> expectedValue ;
+        protected List<int> expectedValue2 ;
 
         [Fact]
         protected abstract void init();
     
         
         [Fact]
-        public void ApplyTest(){
+        public void FirstApplyTest(){
+            init();
+            var actualValue = Operation.Apply(list1,list2);
+            Assert.Equal<int>(expectedValue,actualValue);
+
+        }
+                [Fact]
+        public void SecondApplyTest(){
+            init();
             var actualValue = Operation.Apply(list1,list2);
             Assert.Equal<int>(expectedValue,actualValue);
 
