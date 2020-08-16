@@ -15,16 +15,15 @@ namespace Search.Test.ModelTest
 
             mapOfTheWords = new Dictionary<string, HashSet<int>>
             {
-                { "sky", new HashSet<int>{2} },
-                { "sunset",new HashSet<int>{1,3} },
-                { "tree", new HashSet<int>{5} }
+                { "sky", new HashSet<int>{2}},
+                { "sunset",new HashSet<int>{1,3}},
+                { "tree", new HashSet<int>{5}}
             };
         }
 
         [Fact]
         public void updateTheMapTest()
         {
-
             string str = "The sky , at sunset , looked like a carnivorous flower .";
             InvertedIndex invertedIndex = new InvertedIndex(mapOfTheWords);
             invertedIndex.updateTheMap(str, 1);
@@ -32,11 +31,6 @@ namespace Search.Test.ModelTest
             Assert.Equal(mapOfTheWords["sunset"].Count, 2);
             Assert.Equal(mapOfTheWords["tree"].Count, 1);
             Assert.Equal(mapOfTheWords["flower"].Count, 1);
-
-
-
         }
-
-
     }
 }
