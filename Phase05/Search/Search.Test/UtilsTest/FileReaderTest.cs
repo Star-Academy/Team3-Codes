@@ -5,7 +5,7 @@ namespace Search.Test.UtilsTest
 {
     public class FileReaderTest
     {
-        private const string TestPath =  "resources";
+        private const string TestPath =  "Resources";
 
         [Fact]
         public void MoveNextTest()
@@ -19,12 +19,12 @@ namespace Search.Test.UtilsTest
         public void CurrentTest()
         {
             var reader = new FileReader(TestPath);
-            reader.MoveNext();
+            // reader.MoveNext();
 
             string actual = reader.Current();
             string expected = "The sky , at sunset , looked like a carnivorous flower .";
             
-            Assert.Equal(actual,expected);
+            Assert.Equal(expected,actual);
         }
         
     }
