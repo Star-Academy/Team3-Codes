@@ -1,4 +1,5 @@
 # Team3-Codes
+![build](https://github.com/Star-Academy/Team3-Codes/workflows/build/badge.svg)
 ## Description
 Codes of Team Three in the Code Star Academy Internship
 ## Contributers
