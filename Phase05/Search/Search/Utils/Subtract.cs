@@ -3,10 +3,10 @@ namespace Search.Utils
 {
     public class Subtract : IOperation 
     {
-        public HashSet<int> Apply(HashSet<int> list1, HashSet<int> list2)
+        public HashSet<int> Apply(HashSet<int> set1, HashSet<int> set2)
         {
-            HashSet<int> temp = new HashSet<int>(list1);
-            temp.RemoveWhere(a => list2.Contains(a));
+            HashSet<int> temp = new HashSet<int>(set1);
+            temp.RemoveWhere(a => set2.Contains(a));
             return temp ;
         }
 
