@@ -16,12 +16,12 @@ namespace Search.Utils
 
         public FileReader(string directoryPath)
         {
-            this.files = ((IEnumerable<string>)Directory.GetFiles(directoryPath)).GetEnumerator();
+            files = ((IEnumerable<string>)Directory.GetFiles(directoryPath)).GetEnumerator();
         } 
         
         public bool MoveNext()
         {
-            return this.files.MoveNext();
+            return files.MoveNext();
         }
 
         public string Current()
@@ -31,12 +31,12 @@ namespace Search.Utils
 
         public void Reset()
         {
-            this.files.Reset();
+            files.Reset();
         }
 
         public void Dispose()
         {
-            this.files.Dispose();
+            files.Dispose();
         }
     }
 }

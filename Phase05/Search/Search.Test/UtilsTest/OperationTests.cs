@@ -14,7 +14,6 @@ namespace Search.Test.UtilsTest
         protected HashSet<int> expectedValue ;
         protected HashSet<int> expectedValue2 ;
 
-        [Fact]
         protected abstract void init();
     
         

@@ -10,7 +10,7 @@ namespace Search.Model
             this.dictMap = dictMap;
         }
 
-        public void updateTheMap(string docContent, int docID)
+        public void updateTheMap(string docContent, int docId)
         {
 
             var fullToken = docContent.ToLower();
@@ -21,8 +21,8 @@ namespace Search.Model
                 if (!dictMap.ContainsKey(str))
                     dictMap[str] = new HashSet<int>();
 
-                if (!dictMap[str].Contains(docID))
-                    dictMap[str].Add(docID);
+                if (!dictMap[str].Contains(docId))
+                    dictMap[str].Add(docId);
             }
         }
 

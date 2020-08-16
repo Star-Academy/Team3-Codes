@@ -16,18 +16,18 @@ namespace Search.Model
         this.reader = reader;
     }
 
-    public Dictionary<string, HashSet<int>> getTokens() {
+    public Dictionary<string, HashSet<int>> GetTokens() {
         return this.tokens;
     }
 
-    public int fillTheMap() {
+    public int FillTheMap() {
         InvertedIndex invertedIndex = new InvertedIndex(tokens);
         int i = 0;
         while (reader.MoveNext()) {
             invertedIndex.updateTheMap(reader.Current(), i);
             i++;
         }
-        return i; // return number of documents
+        return i; 
     }
 
     public HashSet<int> process(string input, int numberOfDocs) {
@@ -37,7 +37,8 @@ namespace Search.Model
         And and = new And();
         Or or = new Or();
         Subtract sub = new Subtract();
-        HashSet<int> beforeMinus = and.Apply(and.ApplyOnAll(noneSignWords, tokens),
+
+        var beforeMinus = and.Apply(and.ApplyOnAll(noneSignWords, tokens),
                 or.ApplyOnAll(wordsWithPlusSign, tokens));
 
         if (noneSignWords.Count == 0 && wordsWithPlusSign.Count == 0)
