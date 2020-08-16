@@ -5,7 +5,7 @@ namespace Search.Utils
 {
     public abstract class LogicalOperation : IOperation
     {
-        public abstract HashSet<int> Apply(HashSet<int> list1, HashSet<int> list2);
+        public abstract HashSet<int> Apply(HashSet<int> set1, HashSet<int> set2);
         
 
         public HashSet<int> ApplyOnAll(List<string> words, Dictionary<string, HashSet<int>> tokens)

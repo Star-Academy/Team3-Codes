@@ -7,10 +7,10 @@ namespace Search.Test.UtilsTest
      public abstract class OperationTests
     {
         protected IOperation Operation ;
-        protected HashSet<int> list1 ; 
-        protected HashSet<int> list2 ;
-        protected HashSet<int> list3 ; 
-        protected HashSet<int> list4 ;
+        protected HashSet<int> set1 ; 
+        protected HashSet<int> set2 ;
+        protected HashSet<int> set3 ; 
+        protected HashSet<int> set4 ;
         protected HashSet<int> expectedValue ;
         protected HashSet<int> expectedValue2 ;
 
@@ -21,7 +21,7 @@ namespace Search.Test.UtilsTest
         [Fact]
         public void FirstApplyTest(){
             init();
-            var actualValue = Operation.Apply(list1,list2);
+            var actualValue = Operation.Apply(set1,set2);
             Assert.Equal(expectedValue,actualValue);
 
         }
@@ -29,7 +29,7 @@ namespace Search.Test.UtilsTest
         [Fact]
         public void SecondApplyTest(){
             init();
-            var actualValue2 = Operation.Apply(list3,list4);
+            var actualValue2 = Operation.Apply(set3,set4);
             Assert.Equal<int>(expectedValue2,actualValue2);
 
         }
