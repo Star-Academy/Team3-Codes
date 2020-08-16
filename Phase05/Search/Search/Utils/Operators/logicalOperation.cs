@@ -9,7 +9,6 @@ namespace Search.Utils
 
         public HashSet<int> ApplyOnAll(List<string> words, Dictionary<string, HashSet<int>> tokens)
         {
-        
             return words.Where(w => tokens.ContainsKey(w))
                 .Select(w => tokens[w])
                 .DefaultIfEmpty(new HashSet<int>())
