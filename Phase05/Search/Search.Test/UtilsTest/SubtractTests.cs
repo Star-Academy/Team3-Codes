@@ -4,18 +4,19 @@ using Xunit;
 
 namespace Search.Test.UtilsTest
 {
-    public class SubtractTests 
-    {      
-        protected List<int>  list1 = new List<int>{3,4,5,1,8};
-        protected List<int>  list2 = new List<int>{5,11,7,6,3,2,8};
-        protected List<int> expectedValue = new List<int> {4,1};    
-        
-        [Fact]
-        public void ApplyTest(){
-            Subtract sub = new Subtract();
-            var actualValue = sub.Apply(list1,list2);
-            Assert.Equal(expectedValue,actualValue);
+    public class SubtractTests : OperationTests
+    {
+        protected override void init()
+        {
+            Operation = new Subtract();
 
+            list1 = new List<int>{8,3,4,5,1,7};
+            list2 = new List<int>{2,9,6,3,4};
+            expectedValue = new List<int> {8,5,1,7};
+
+            list3 = new List<int>{};
+            list4 = new List<int>{5,11,7,6,3,2,8};
+            expectedValue2 = new List<int> {};
         }
     }
 }

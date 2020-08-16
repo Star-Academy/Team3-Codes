@@ -1,7 +1,7 @@
-using System.Linq ;
+
 using System.Collections.Generic;
 using  Search.Utils ;
-using Xunit;
+
 
 namespace Search.Test.UtilsTest
 {
@@ -19,7 +19,7 @@ namespace Search.Test.UtilsTest
                 
                 list3 = new List<int>{};
                 list4 = new List<int>{5,11,7,6,3,2,8};
-                expectedValue = new List<int> {5,11,7,6,3,2,8};
+                expectedValue2 = new List<int> {};
             }
         }
 

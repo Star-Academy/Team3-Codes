@@ -23,14 +23,15 @@ namespace Search.Test.UtilsTest
         public void FirstApplyTest(){
             init();
             var actualValue = Operation.Apply(list1,list2);
-            Assert.Equal<int>(expectedValue,actualValue);
+            Assert.Equal(expectedValue,actualValue);
 
         }
-                [Fact]
+        
+        [Fact]
         public void SecondApplyTest(){
             init();
-            var actualValue = Operation.Apply(list1,list2);
-            Assert.Equal<int>(expectedValue,actualValue);
+            var actualValue2 = Operation.Apply(list3,list4);
+            Assert.Equal<int>(expectedValue2,actualValue2);
 
         }
      }
