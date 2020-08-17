@@ -16,5 +16,7 @@ Learning about SOLID concepts and added Unit Test to phase one project.
 Just started to code in C#, the project in this phase is to implement a simple JSON project.
 ### Phase Five
 An Implementation of Search Project (that has been implemented in Java in phases 1 and 2 and 3) in C# with TDD approach.
+### Phase Six
+Getting started with CI and CD pipelines and Creating a search console app
 
 
