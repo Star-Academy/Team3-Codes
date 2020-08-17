@@ -8,7 +8,15 @@ namespace Search.Utils
 
         public override HashSet<int> Apply(HashSet<int> set1, HashSet<int> set2)
         {
-           return set1.Intersect(set2).ToHashSet();
+            if (set1.Count == 0)
+            {
+                return set2;
+            }
+            if (set2.Count == 0)
+            {
+                return set1;
+            }
+            return set1.Intersect(set2).ToHashSet();
         }
 
     }

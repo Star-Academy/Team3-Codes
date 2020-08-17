@@ -14,7 +14,7 @@ namespace Search.Model
              if(matches != null)
              {
                  foreach(Match m in matches)
-                    wordsThatMatch.Add(m.Groups[2].Value);
+                    wordsThatMatch.Add(m.Groups[groupOfWordInRegex].Value);
              }
              
             return wordsThatMatch;

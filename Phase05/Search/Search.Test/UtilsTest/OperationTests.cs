@@ -25,12 +25,5 @@ namespace Search.Test.UtilsTest
 
         }
 
-        [Fact]
-        public void SecondApplyTest(){
-            init();
-            var actualValue2 = Operation.Apply(set3,set4);
-            Assert.Equal<int>(expectedValue2,actualValue2);
-
-        }
      }
 }

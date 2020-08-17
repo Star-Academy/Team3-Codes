@@ -12,10 +12,10 @@ namespace Search.Test.ModelTest
         public void AssortTheWordsTest()
         {
             var input = "It +is a +great -day +to -live ";
-            var regex = new Regex("(\\+)(\\w*)");
+            var regex = new Regex("^(\\w*)");
 
-            var actual = RegexOperator.AssortTheWords(input, regex, 2);
-            var expected =  new string[]{ "is", "great", "to" }.ToList();
+            var actual = RegexOperator.AssortTheWords(input, regex, 1);
+            var expected =  new string[]{ "It" }.ToList();
 
             Assert.Equal(actual,expected);
 

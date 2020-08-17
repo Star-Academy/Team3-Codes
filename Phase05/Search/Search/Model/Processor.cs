@@ -9,9 +9,10 @@ namespace Search.Model
         private  IReader reader;
         Regex PLUS_REGEX = new Regex("(\\+)(\\w*)");
         Regex MINUS_REGEX = new Regex("(-)(\\w*)");
-        Regex NONE_SIGN_REGEX =new Regex("^(\\w*)");
+        Regex NONE_SIGN_REGEX =new Regex("^(\\w+)");
 
     public Processor(IReader reader) {
+
         this.tokens = new Dictionary<string, HashSet<int>>(); 
         this.reader = reader;
     }
