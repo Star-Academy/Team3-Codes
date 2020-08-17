@@ -1,13 +1,13 @@
 using System;
 using System.IO;
 using System.Collections.Generic;
+using System.Collections;
 
 namespace Search.Utils
 {
     public class FileReader : IReader
     {
         private readonly IEnumerator<string> files;
-
 
         public FileReader(string directoryPath)
         {
@@ -23,5 +23,6 @@ namespace Search.Utils
         {
             return File.ReadAllText(files.Current);
         }
+
     }
 }
