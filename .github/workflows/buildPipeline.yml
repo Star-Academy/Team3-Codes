@@ -1,9 +1,9 @@
 name: build
 on:
   push:
-    branches: [ Phase06 ]
+    branches: [ master ]
   pull_request:
-    branches: [ Phase06 ]
+    branches: [ master ]
 jobs:
   build:
     runs-on: ubuntu-latest
