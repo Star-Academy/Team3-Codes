@@ -5,10 +5,6 @@ namespace phase4.Model
 {
     public class Student
     {
-        public Student()
-        {
-
-        }
 
         public Student(StudentInfo info)
         {
@@ -23,6 +19,7 @@ namespace phase4.Model
         {
             return grades.Sum(x => x.Score) / grades.Count;
         }
+        
         public override string ToString(){
             return ""+Info.FirstName+"  "+Info.LastName+"   Average: "+GetAverage();
         }
