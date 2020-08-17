@@ -1,0 +1,54 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+<<<<<<< HEAD
+                "${workspaceFolder}/Search.Test/Search.Test.csproj",
+=======
+                "${workspaceFolder}/Search/Search.csproj",
+>>>>>>> f99e02ea2284fae26fc17686a9143e0222944736
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "publish",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "publish",
+<<<<<<< HEAD
+                "${workspaceFolder}/Search.Test/Search.Test.csproj",
+=======
+                "${workspaceFolder}/Search/Search.csproj",
+>>>>>>> f99e02ea2284fae26fc17686a9143e0222944736
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "watch",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "watch",
+                "run",
+<<<<<<< HEAD
+                "${workspaceFolder}/Search.Test/Search.Test.csproj",
+=======
+                "${workspaceFolder}/Search/Search.csproj",
+>>>>>>> f99e02ea2284fae26fc17686a9143e0222944736
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary"
+            ],
+            "problemMatcher": "$msCompile"
+        }
+    ]
+}
