@@ -1,5 +1,6 @@
 # Team3-Codes
 ![build](https://github.com/Star-Academy/Team3-Codes/workflows/build/badge.svg)
+[![codecov](https://codecov.io/gh/Star-Academy/Team3-Codes/branch/master/graph/badge.svg)](https://codecov.io/gh/Star-Academy/Team3-Codes)
 ## Description
 Codes of Team Three in the Code Star Academy Internship
 ## Contributers
