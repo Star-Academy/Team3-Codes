@@ -4,6 +4,9 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <PackageId>StarAcademy.Team3.Search</PackageId>
+        <Authors>Kimia Noorbakhsh Mahla Sharifi</Authors>
+        <Company>Star Academy</Company>
   </PropertyGroup>
 
 
