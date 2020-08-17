@@ -1,17 +1,13 @@
 using System;
 using System.IO;
 using System.Collections.Generic;
-using System.Collections;
 
 namespace Search.Utils
 {
-    public class FileReader : IReader, IEnumerator<string>
+    public class FileReader : IReader
     {
         private readonly IEnumerator<string> files;
 
-        string IEnumerator<string>.Current => throw new NotImplementedException();
-
-        object IEnumerator.Current => throw new NotImplementedException();
 
         public FileReader(string directoryPath)
         {
@@ -26,16 +22,6 @@ namespace Search.Utils
         public string Current()
         {
             return File.ReadAllText(files.Current);
-        }
-
-        public void Reset()
-        {
-            files.Reset();
-        }
-
-        public void Dispose()
-        {
-            files.Dispose();
         }
     }
 }
