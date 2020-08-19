@@ -19,5 +19,7 @@ Just started to code in C#, the project in this phase is to implement a simple J
 An Implementation of Search Project (that has been implemented in Java in phases 1 and 2 and 3) in C# with TDD approach.
 ### Phase Six
 Getting started with CI and CD pipelines and Creating a search console app.
+### Phase Seven
+Introduction to Elasticsearch and Kibana.
 
 
