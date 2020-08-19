@@ -1,10 +1,11 @@
 ﻿using System;
 using Nest;
-
+using NestTest.Model;
 namespace NestTest
 {
     class Program
     {
+        private static string pathOfPeopleJson = "Resources\\people.json";
         static void Main(string[] args)
         {
             var uri = new Uri ("http://localhost:9200");
@@ -15,6 +16,9 @@ namespace NestTest
             connectionSettings.EnableDebugMode();
             var client = new ElasticClient (connectionSettings);
             var response = client.Ping();
+            var reader = new JsonReader();
+            var people = reader.Read(pathOfPeopleJson);
+            
         }
     }
 }

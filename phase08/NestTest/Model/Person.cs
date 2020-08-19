@@ -2,7 +2,7 @@ using System;
 using System.Text.Json.Serialization;
 using Nest;
 
-namespace NestSampleCode.Models
+namespace NestTest.Model
 {
     public class Person 
     {
