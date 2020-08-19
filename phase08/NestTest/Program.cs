@@ -14,6 +14,7 @@ namespace NestTest
             // and should not be used in production
             connectionSettings.EnableDebugMode();
             var client = new ElasticClient (connectionSettings);
+            var response = client.Ping();
         }
     }
 }
