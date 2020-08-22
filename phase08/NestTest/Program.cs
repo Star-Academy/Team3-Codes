@@ -18,7 +18,8 @@ namespace NestTest
             // var people = reader.Read(pathOfPeopleJson);
             // Console.Write(IndexHandler.CreateMapping(client));
             // BulkPeople(people, "people", client);
-            var searchResponse = Query.GeoDistanceQuerySample(client,"people");
+            var searchResponse = Query.RangeQuerySample(client,"people");
+            Console.Write(searchResponse.DebugInformation);
         }
 
         public static void BulkPeople(List<Person> people, string index, ElasticClient client)

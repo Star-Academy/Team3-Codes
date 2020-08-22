@@ -29,7 +29,7 @@ namespace NestTest.Model
             return client.Search<Person>(s => s
                    .Index(index)
                    .Query(q => q.MultiMatch(c => c
-                   .Fields(f => f.Field(p => p.EyeColor).Field(p => p.Address)).Operator(Operator.And)
+                   .Fields(f => f.Field(p => p.EyeColor).Field(p => p.About)).Operator(Operator.And)
                    .Query("green"))));
         }
         public static IResponse GeoDistanceQuerySample(ElasticClient client, string index)
@@ -40,10 +40,22 @@ namespace NestTest.Model
             .Query(q =>q.GeoDistance(g => g
             .Field(p => p.Location)
             .DistanceType(GeoDistanceType.Arc)
-            .Location(34, -34)
-            .Distance(150,DistanceUnit.Kilometers)
+            .Location(43, 77)
+            .Distance("1500m")
             .ValidationMethod(GeoValidationMethod.IgnoreMalformed)))) ;
 
+          
+        }
+
+        public static IResponse RangeQuerySample(ElasticClient client, string index)
+        {
+
+            return client.Search<Person>(p => p
+            .Index(index)
+            .Query(q =>q.Range(r =>r
+            .Field(p => p.Age)
+            .LessThanOrEquals(25)
+            .GreaterThanOrEquals(23))));
           
         }
     }
