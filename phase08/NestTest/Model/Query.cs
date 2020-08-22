@@ -23,5 +23,26 @@ namespace NestTest.Model
                 .Query(q => query));
             return response;
         }
+
+        public static IResponse MatchQuerySample(ElasticClient client, string index)
+        {
+            return client.Search<Person>(s => s
+                    .Index(index)
+                    .Query(q => q
+                        .Match(match => match
+                            .Field(p => p.EyeColor)
+                            .Query("blue"))));
+        }
+
+        public static IResponse FuzzyQuerySample(ElasticClient client, string index)
+        {
+            return client.Search<Person>(s => s
+                    .Index(index)
+                    .Query(q => q
+                        .Match(match => match
+                            .Field(p => p.About)
+                            .Fuzziness(Fuzziness.AutoLength(1, 2))
+                            .Query("labor"))));
+        }
     }
 }

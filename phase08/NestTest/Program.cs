@@ -18,7 +18,7 @@ namespace NestTest
             // var people = reader.Read(pathOfPeopleJson);
             // Console.Write(IndexHandler.CreateMapping(client));
             // BulkPeople(people, "people", client);
-            var queryResponse1 = Query.BoolQuerySample1(client,"people");
+            var queryResponse = Query.FuzzyQuerySample(client,"people");
         }
 
         public static void BulkPeople(List<Person> people, string index, ElasticClient client)
