@@ -18,7 +18,8 @@ namespace NestTest
             // var people = reader.Read(pathOfPeopleJson);
             // Console.Write(IndexHandler.CreateMapping(client));
             // BulkPeople(people, "people", client);
-            var searchResponse = Query.RangeQuerySample(client,"people");
+            var query = new Query(client,"people");
+            var searchResponse = query.AggregationQuerySample();
             Console.Write(searchResponse.DebugInformation);
         }
 
