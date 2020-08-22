@@ -20,7 +20,10 @@ namespace NestTest
             // BulkPeople(people, "people", client);
             var query = new Query(client,"people");
             var searchResponse = query.AggregationQuerySample();
-            Console.Write(searchResponse.DebugInformation);
+            var terms = searchResponse.Aggregations.Terms("colors");
+                
+              
+
         }
 
         public static void BulkPeople(List<Person> people, string index, ElasticClient client)

@@ -5,15 +5,13 @@ namespace NestTest.Model
 {
     public class Query
     {
-
         ElasticClient client ;
         string index ;
-        
-        public Query(ElasticClient client,string index){
+        public Query( ElasticClient client , string index ){
             this.client = client ;
             this.index = index ;
         }
-        public IResponse BoolQuerySample1()
+        public static IResponse BoolQuerySample1(ElasticClient client, string index)
         {
             QueryContainer query = new BoolQuery
             {
@@ -31,16 +29,18 @@ namespace NestTest.Model
                 .Query(q => query));
             return response;
         }
-        public IResponse MultiMatchQueySample1()
+        public static IResponse MultiMatchQueySample1(ElasticClient client, string index)
         {
+
             return client.Search<Person>(s => s
                    .Index(index)
                    .Query(q => q.MultiMatch(c => c
-                   .Fields(f => f.Field(p => p.EyeColor).Field(p => p.About)).Operator(Operator.And)
+                   .Fields(f => f.Field(p => p.Address).Field(p => p.About)).Operator(Operator.And)
                    .Query("gates").Query("wyoming"))));
         }
-        public IResponse GeoDistanceQuerySample()
+        public static IResponse GeoDistanceQuerySample(ElasticClient client, string index)
         {
+
             return client.Search<Person>(p => p
             .Index(index)
             .Query(q =>q.GeoDistance(g => g
@@ -49,9 +49,11 @@ namespace NestTest.Model
             .Location(43, 77)
             .Distance("1500m")
             .ValidationMethod(GeoValidationMethod.IgnoreMalformed)))) ;
+
+          
         }
 
-        public IResponse RangeQuerySample()
+        public static IResponse RangeQuerySample(ElasticClient client, string index)
         {
 
             return client.Search<Person>(p => p
@@ -62,7 +64,7 @@ namespace NestTest.Model
             .GreaterThanOrEquals(23))));
           
         }
-        public IResponse MatchQuerySample()
+        public static IResponse MatchQuerySample(ElasticClient client, string index)
         {
             return client.Search<Person>(s => s
                     .Index(index)
@@ -72,7 +74,7 @@ namespace NestTest.Model
                             .Query("blue"))));
         }
 
-        public IResponse FuzzyQuerySample()
+        public static IResponse FuzzyQuerySample(ElasticClient client, string index)
         {
             return client.Search<Person>(s => s
                     .Index(index)
@@ -82,35 +84,13 @@ namespace NestTest.Model
                             .Fuzziness(Fuzziness.AutoLength(1, 2))
                             .Query("labor"))));
         }
-
-        public IResponse TermQuerySample()
-        {
-           return client.Search<Person>(s => s
-                    .Index(index)
-                    .Query(q => q
-                        .Term(c => c
-                            .Field(p => p.Name)
-                            .Value("deanne")
-                        )));
-        }
-
-        public IResponse TermsQuerySample()
-        {
-            return client.Search<Person>(s => s
-                    .Index(index)
-                    .Query(q =>q
-                        .Terms(c => c
-                            .Field(p => p.About)
-                            .Terms("labore", "aliquip")
-                        )));
-        }
-
-        public IResponse AggregationQuerySample(){
-           return client.Search<Person>(s => s
+        public ISearchResponse<Person> AggregationQuerySample(){
+         return client.Search<Person>(s => s
                     .Index(index)
                     .Aggregations(a => a
                         .Terms("colors", st => st
-                            .Field(p => p.EyeColor))));
+                            .Field("eyeColor.keyword")
+                        )));
         }
     }
 }
