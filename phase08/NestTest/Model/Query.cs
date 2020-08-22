@@ -110,7 +110,8 @@ namespace NestTest.Model
                     .Index(index)
                     .Aggregations(a => a
                         .Terms("colors", st => st
-                            .Field(p => p.EyeColor))));
+                            .Field("EyeColor.keyword")
+                        )));
         }
     }
 }
