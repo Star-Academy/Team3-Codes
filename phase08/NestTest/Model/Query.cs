@@ -23,5 +23,28 @@ namespace NestTest.Model
                 .Query(q => query));
             return response;
         }
+        public static IResponse MultiMatchQueySample1(ElasticClient client, string index)
+        {
+
+            return client.Search<Person>(s => s
+                   .Index(index)
+                   .Query(q => q.MultiMatch(c => c
+                   .Fields(f => f.Field(p => p.EyeColor).Field(p => p.Address)).Operator(Operator.And)
+                   .Query("green"))));
+        }
+        public static IResponse GeoDistanceQuerySample(ElasticClient client, string index)
+        {
+
+            return client.Search<Person>(p => p
+            .Index(index)
+            .Query(q =>q.GeoDistance(g => g
+            .Field(p => p.Location)
+            .DistanceType(GeoDistanceType.Arc)
+            .Location(34, -34)
+            .Distance(150,DistanceUnit.Kilometers)
+            .ValidationMethod(GeoValidationMethod.IgnoreMalformed)))) ;
+
+          
+        }
     }
 }
