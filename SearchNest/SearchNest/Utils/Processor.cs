@@ -40,9 +40,9 @@ namespace SearchNest.Utils
         public HashSet<int> Process(string input, int numberOfDocs)
         {
 
-            var wordsWithPlusSign = RegexOperator.AssortTheWords(input, PLUS_REGEX, 2);
-            var wordsWithMinusSign = RegexOperator.AssortTheWords(input, MINUS_REGEX, 2);
-            var noneSignWords = RegexOperator.AssortTheWords(input, NONE_SIGN_REGEX, 1);
+            string wordsWithPlusSign = RegexOperator.AssortTheWords(input, PLUS_REGEX, 2);
+            string wordsWithMinusSign = RegexOperator.AssortTheWords(input, MINUS_REGEX, 2);
+            string noneSignWords = RegexOperator.AssortTheWords(input, NONE_SIGN_REGEX, 1);
 
             return new HashSet<int>();
 
