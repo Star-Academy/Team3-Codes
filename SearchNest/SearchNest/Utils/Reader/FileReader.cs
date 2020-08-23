@@ -3,15 +3,15 @@ using System.IO;
 
 namespace SearchNest.Utils.Reader
 {
-       public class FileReader : IReader
+    public class FileReader : IReader
     {
         private readonly IEnumerator<string> files;
 
         public FileReader(string directoryPath)
         {
             files = ((IEnumerable<string>)Directory.GetFiles(directoryPath)).GetEnumerator();
-        } 
-        
+        }
+
         public bool MoveNext()
         {
             return files.MoveNext();

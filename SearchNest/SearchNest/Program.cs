@@ -8,20 +8,21 @@ namespace SearchNest
 {
     class Program
     {
-        static string path = "Resources" ;
+        static string path = "Resources";
         static void Main(string[] args)
         {
-            var uri = new Uri ("http://localhost:9200");
-            var connectionSettings = new ConnectionSettings (uri);
+            var uri = new Uri("http://localhost:9200");
+            var connectionSettings = new ConnectionSettings(uri);
             connectionSettings.EnableDebugMode();
-            var client = new ElasticClient (connectionSettings);
+            var client = new ElasticClient(connectionSettings);
             var response = client.Ping();
-            var indexHandler = new IndexHandler("documents",client) ;
+            Console.Write(response.DebugInformation);
+            var indexHandler = new IndexHandler("documents", client);
             // indexHandler.CreateMapping();
-            var reader = new FileReader(path);
-            var processor = new Processor(reader);
-            processor.SerializeDocuments();
-            indexHandler.BulkDocs(processor.GetDocuments());
+            // var reader = new FileReader(path);
+            // var processor = new Processor(reader);
+            // processor.SerializeDocuments();
+            // indexHandler.BulkDocs(processor.GetDocuments());
         }
     }
 }

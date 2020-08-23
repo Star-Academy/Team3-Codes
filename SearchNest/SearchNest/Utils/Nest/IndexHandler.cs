@@ -6,11 +6,12 @@ namespace SearchNest.Utils.Nest
 {
     public class IndexHandler
     {
-        string index ;
-        ElasticClient client ;
-        public IndexHandler(string index, ElasticClient client){
-            this.index = index ;
-            this.client = client ;
+        string index;
+        ElasticClient client;
+        public IndexHandler(string index, ElasticClient client)
+        {
+            this.index = index;
+            this.client = client;
         }
         public CreateIndexResponse CreateMapping()
         {
@@ -39,11 +40,11 @@ namespace SearchNest.Utils.Nest
                                                 .Fields(f => f
                                                     .Text(ng => ng
                                                         .Name("ngram")
-                                                        .Analyzer("my-ngram-analyzer"))))))); 
-                                        
-           return response;                                     
+                                                        .Analyzer("my-ngram-analyzer")))))));
 
-        } 
+            return response;
+
+        }
 
         public void BulkDocs(List<Document> documents)
         {
@@ -52,7 +53,7 @@ namespace SearchNest.Utils.Nest
             {
                 bulkDescriptor.Index<Document>(x => x
                     .Index(index)
-                    .Document(doc)
+                     .Document(doc)
                 );
             }
             client.Bulk(bulkDescriptor);

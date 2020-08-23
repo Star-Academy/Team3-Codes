@@ -32,7 +32,7 @@ namespace NestTest
                                             .Name(n => n.EyeColor)
                                                 .Fields(f => f
                                                     .Text(ng => ng
-                                                        .Name("ngram")
+                                                        .Name("keyword")
                                                         .Analyzer("my-ngram-analyzer"))))
                                         .Text(t => t
                                             .Name(n => n.Name)
