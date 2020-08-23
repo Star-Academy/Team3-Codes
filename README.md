@@ -21,5 +21,7 @@ An Implementation of Search Project (that has been implemented in Java in phases
 Getting started with CI and CD pipelines and Creating a search console app.
 ### Phase Seven
 Introduction to Elasticsearch and Kibana.
+### Phase Eight
+Introduction to Nest library, Phase eight project : Implement the search project with the use of Nest library.
 
 
