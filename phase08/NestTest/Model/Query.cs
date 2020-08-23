@@ -88,9 +88,9 @@ namespace NestTest.Model
          return client.Search<Person>(s => s
                     .Index(index)
                     .Aggregations(a => a
-                        .Terms("colors", st => st
-                            .Field("eyeColor.keyword")
-                        )));
+                    .Terms("colors", st => st
+                    .Field(p => p.Name.Suffix("keyword")))));
+                                                                    
         }
     }
 }
