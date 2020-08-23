@@ -3,6 +3,8 @@ using System.Text.RegularExpressions;
 using Search.Model;
 using SearchNest.Utils.Reader;
 using SearchNest.Model;
+using SearchNest.Utils.Nest;
+using Nest;
 
 namespace SearchNest.Utils
 {
@@ -37,15 +39,13 @@ namespace SearchNest.Utils
             return i; // return number of documents
         }
 
-        public HashSet<int> Process(string input, int numberOfDocs)
+        public IResponse Process(string input, ElasticClient client, string index)
         {
-
             string wordsWithPlusSign = RegexOperator.AssortTheWords(input, PLUS_REGEX, 2);
             string wordsWithMinusSign = RegexOperator.AssortTheWords(input, MINUS_REGEX, 2);
             string noneSignWords = RegexOperator.AssortTheWords(input, NONE_SIGN_REGEX, 1);
-
-            return new HashSet<int>();
-
+            var query = new SearchQuery(client,index);
+            return query.SearchForAllWords(wordsWithPlusSign,wordsWithMinusSign,noneSignWords);
         }
     }
 }

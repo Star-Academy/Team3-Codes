@@ -15,14 +15,14 @@ namespace SearchNest
             var connectionSettings = new ConnectionSettings(uri);
             connectionSettings.EnableDebugMode();
             var client = new ElasticClient(connectionSettings);
-            var response = client.Ping();
-            Console.Write(response.DebugInformation);
+            // var response = client.Ping();
             var indexHandler = new IndexHandler("documents", client);
             // indexHandler.CreateMapping();
-            // var reader = new FileReader(path);
-            // var processor = new Processor(reader);
+            var reader = new FileReader(path);
+            var processor = new Processor(reader);
             // processor.SerializeDocuments();
             // indexHandler.BulkDocs(processor.GetDocuments());
+            var response = processor.Process("as i +happen", client, "documents");
         }
     }
 }
