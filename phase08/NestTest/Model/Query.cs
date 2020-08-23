@@ -53,7 +53,7 @@ namespace NestTest.Model
           
         }
 
-        public static IResponse RangeQuerySample(ElasticClient client, string index)
+        public IResponse RangeQuerySample(ElasticClient client, string index)
         {
 
             return client.Search<Person>(p => p
@@ -64,17 +64,17 @@ namespace NestTest.Model
             .GreaterThanOrEquals(23))));
           
         }
-        public static IResponse MatchQuerySample(ElasticClient client, string index)
+        public IResponse MatchQuerySample(ElasticClient client, string index)
         {
             return client.Search<Person>(s => s
                     .Index(index)
                     .Query(q => q
                         .Match(match => match
-                            .Field(p => p.EyeColor)
-                            .Query("blue"))));
+                            .Field(p => p.EyeColor).MinimumShouldMatch(1)
+                            .Query("blue").Query("green"))));
         }
 
-        public static IResponse FuzzyQuerySample(ElasticClient client, string index)
+        public IResponse FuzzyQuerySample(ElasticClient client, string index)
         {
             return client.Search<Person>(s => s
                     .Index(index)

@@ -12,20 +12,18 @@ namespace SearchNest.Utils.Nest
             this.client = client;
             this.index = index;
         }
-        public IResponse MultiMatchQuerySample1(List<int> wordsWithPlusSign, List<int> wordsWithMinusSign, List<int> noneSignWords)
-        {
+        // public IResponse SearchForAllWords(List<string> wordsWithPlusSign, List<string> wordsWithMinusSign, List<string> noneSignWords)
+        // {
+        //     return client.Search<Document>(s => s
+        //                     .Index(index)
+        //                     .Query(q => q
+        //                         .Terms(c => c
+        //                             .Field(p => p.Text)
+        //                             .MinimumShouldMatch(MinimumShouldMatch.Fixed(2))
+        //                             .Terms(new List<string> { "term1", "term2" }
+        //                             )))));
+    
 
-            var response = client.Search<Document>(s => s
-                            .Index(index)
-                             .Query(q => q
-                                .Bool(b => b
-                                    .Must(must => must
-                                        .Terms(c => c
-                                        .Field(p => p.Text)
-                                        .Terms(noneSignWords))))));
-
-            return response;
-
-        }
+        // }
     }
 }
