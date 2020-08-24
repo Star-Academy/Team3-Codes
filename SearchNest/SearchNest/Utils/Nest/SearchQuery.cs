@@ -12,16 +12,28 @@ namespace SearchNest.Utils.Nest
             this.client = client;
             this.index = index;
         }
-        public IResponse SearchForAllWords(List<string> wordsWithPlusSign, List<string> wordsWithMinusSign, List<string> noneSignWords)
+        public IResponse SearchForAllWords(string wordsWithPlusSign, string wordsWithMinusSign, string noneSignWords)
         {
-            return client.Search<Document>(s => s
-                            .Index(index)
-                            .Query(q => q
-                                .Terms(c => c
-                                    .Field(p => p.Text)
-                                    .Terms(noneSignWords)
-                                    )));
+            var response = client.Search<Document>(s => s
+                                    .Index(index)
+                                    .Query(q => q
+                                        .Bool(b => b
+                                            .Must(must => must
+                                                .Match(match => match
+                                                    .Field(p => p.Text)
+                                                    .Query(noneSignWords)
+                                                    .Operator(Operator.And)))
+                                            .MustNot(must => must
+                                                .Match(match => match
+                                                    .Field(p => p.Text)
+                                                    .Query(wordsWithMinusSign)))
+                                            .Should(must => must
+                                                .Match(match => match
+                                                    .Field(p => p.Text)
+                                                    .Query(wordsWithPlusSign)))
+                                                    )));
 
+            return response;
         }
     }
 }
