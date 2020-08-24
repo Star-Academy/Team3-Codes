@@ -11,7 +11,7 @@ namespace NestTest.Model
             this.client = client ;
             this.index = index ;
         }
-        public static IResponse BoolQuerySample1(ElasticClient client, string index)
+        public IResponse BoolQuerySample1(ElasticClient client, string index)
         {
             QueryContainer query = new BoolQuery
             {
@@ -29,7 +29,7 @@ namespace NestTest.Model
                 .Query(q => query));
             return response;
         }
-        public static IResponse MultiMatchQueySample1(ElasticClient client, string index)
+        public IResponse MultiMatchQueySample1(ElasticClient client, string index)
         {
 
             return client.Search<Person>(s => s
@@ -38,7 +38,7 @@ namespace NestTest.Model
                    .Fields(f => f.Field(p => p.Address).Field(p => p.About)).Operator(Operator.And)
                    .Query("gates").Query("wyoming"))));
         }
-        public static IResponse GeoDistanceQuerySample(ElasticClient client, string index)
+        public IResponse GeoDistanceQuerySample(ElasticClient client, string index)
         {
 
             return client.Search<Person>(p => p
@@ -89,7 +89,7 @@ namespace NestTest.Model
                     .Index(index)
                     .Aggregations(a => a
                     .Terms("colors", st => st
-                    .Field(p => p.Name.Suffix("keyword")))));
+                    .Field("eyeColor.keyword"))));
                                                                     
         }
     }

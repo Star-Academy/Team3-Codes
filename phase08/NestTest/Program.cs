@@ -19,7 +19,7 @@ namespace NestTest
             // Console.Write(IndexHandler.CreateMapping(client));
             // BulkPeople(people, "people", client);
             var query = new Query(client,"people");
-            var searchResponse = query.MatchQuerySample()
+            var searchResponse = query.AggregationQuerySample() ;
             var terms = searchResponse.Aggregations.Terms("colors");
                 
               
