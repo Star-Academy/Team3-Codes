@@ -1,16 +1,16 @@
-// using Nest;
+using System;
+using Nest;
 
-// namespace SearchNest.Utils.Nest
-// {
-//     public class ResponseValidator
-//     {
-//         IResponse response ;
-//         public ResponseValidator(IResponse response){
-//             this.response = response ;
-//         }
+namespace SearchNest.Utils.Nest
+{
+    public class ResponseValidator
+    {
+    
 
-//         public void handleException(){
-//             if ()
-//         } 
-//     }
-// }
+        public static void handleException(IResponse response)
+        {
+            if (!response.IsValid)
+                Console.WriteLine(response.OriginalException.Message);
+        }
+    }
+}

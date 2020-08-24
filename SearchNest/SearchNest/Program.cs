@@ -14,23 +14,26 @@ namespace SearchNest
         static string path = "Resources";
         static void Main(string[] args)
         {
-
-
             var uri = new Uri("http://localhost:9200");
             var connectionSettings = new ConnectionSettings(uri);
             connectionSettings.EnableDebugMode();
             var client = new ElasticClient(connectionSettings);
 
-            var indexHandler = new IndexHandler("documents", client);
-            // indexHandler.CreateMapping();
-
-            var processor = new Processor(new FileReader(path));
-            processor.SerializeDocuments();
-            // indexHandler.BulkDocs(processor.GetDocuments());
-
-
-            var response = processor.doProcess(Console.ReadLine(), client, "documents");
-            ConsolePrinter.PrintNameOfSuitableDocs(response);
+            IResponse response = client.Ping();
+            if (client.Ping().IsValid)
+            {
+                var indexHandler = new IndexHandler("documents", client);
+                // indexHandler.CreateMapping();
+                var processor = new Processor(new FileReader(path));
+                processor.SerializeDocuments();
+                // indexHandler.BulkDocs(processor.GetDocuments());
+                var responseOfSearchQuery = processor.doProcess(Console.ReadLine(), client, "documents");
+                if (responseOfSearchQuery.IsValid)
+                    ConsolePrinter.PrintNameOfSuitableDocs(responseOfSearchQuery);
+                else
+                    ResponseValidator.handleException(responseOfSearchQuery);
+            }
+            else ResponseValidator.handleException(response);
 
         }
     }

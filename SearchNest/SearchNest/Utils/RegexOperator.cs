@@ -5,7 +5,7 @@ namespace Search.Model
 {
     public class RegexOperator
     {
-        public static string AssortTheWords(string input, Regex regex, int groupOfWordInRegex)
+        public static List<string> AssortTheWords(string input, Regex regex, int groupOfWordInRegex)
         {
             var wordsThatMatch = new List<string>();
             var matches = regex.Matches(input);
@@ -16,23 +16,7 @@ namespace Search.Model
                     wordsThatMatch.Add(m.Groups[groupOfWordInRegex].Value);
             }
 
-            return ListToString(wordsThatMatch);
-        }
-
-        public static string ListToString(List<string> input) 
-        {
-            string result = "";
-            for (int i = 0; i < input.Count; i++)
-            {
-                if(i==input.Count-1)
-                {
-                    string.Concat(result,input[i]," ");
-                }else
-                {
-                    string.Concat(result,input[i]);
-                }
-            }
-            return result;
+            return wordsThatMatch;
         }
     }
 }

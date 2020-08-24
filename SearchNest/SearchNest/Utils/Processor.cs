@@ -31,7 +31,7 @@ namespace SearchNest.Utils
             int i = 0;
             while (reader.MoveNext())
             {
-                string text = reader.CurrentText();
+                var text = reader.CurrentText();
                 var document = new Document(text, i, reader.CurrentName());
                 documents.Add(document);
                 i++;
@@ -41,9 +41,9 @@ namespace SearchNest.Utils
 
         public ISearchResponse<Document> doProcess(string input, ElasticClient client, string index)
         {
-            string wordsWithPlusSign = RegexOperator.AssortTheWords(input, PLUS_REGEX, 2);
-            string wordsWithMinusSign = RegexOperator.AssortTheWords(input, MINUS_REGEX, 2);
-            string noneSignWords = RegexOperator.AssortTheWords(input, NONE_SIGN_REGEX, 1);
+            var wordsWithPlusSign = string.Join(" ",RegexOperator.AssortTheWords(input, PLUS_REGEX, 2));
+            string wordsWithMinusSign = string.Join(" ",RegexOperator.AssortTheWords(input, MINUS_REGEX, 2));
+            string noneSignWords = string.Join(" ",RegexOperator.AssortTheWords(input, NONE_SIGN_REGEX, 1));
             var query = new SearchQuery(client, index);
             return query.SearchForAllWords(wordsWithPlusSign, wordsWithMinusSign, noneSignWords);
         }
