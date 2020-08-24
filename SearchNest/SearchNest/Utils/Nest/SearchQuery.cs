@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Nest;
 using SearchNest.Model;
 namespace SearchNest.Utils.Nest
@@ -12,28 +13,30 @@ namespace SearchNest.Utils.Nest
             this.client = client;
             this.index = index;
         }
-        public IResponse SearchForAllWords(string wordsWithPlusSign, string wordsWithMinusSign, string noneSignWords)
+        public ISearchResponse<Document> SearchForAllWords(string wordsWithPlusSign, string wordsWithMinusSign, string noneSignWords)
         {
-            var response = client.Search<Document>(s => s
+            return client.Search<Document>(s => s
                                     .Index(index)
+                                    .Size(1000)
                                     .Query(q => q
                                         .Bool(b => b
                                             .Must(must => must
                                                 .Match(match => match
                                                     .Field(p => p.Text)
                                                     .Query(noneSignWords)
-                                                    .Operator(Operator.And)))
+                                                    .MinimumShouldMatch(noneSignWords.Split(" ").Count())
+                                                   ))
+                                            .Must(must => must
+                                                .Match(match => match
+                                                    .Field(p => p.Text)
+                                                    .Query(wordsWithPlusSign)
+                                                    .MinimumShouldMatch(1)))        
                                             .MustNot(must => must
                                                 .Match(match => match
                                                     .Field(p => p.Text)
                                                     .Query(wordsWithMinusSign)))
-                                            .Should(must => must
-                                                .Match(match => match
-                                                    .Field(p => p.Text)
-                                                    .Query(wordsWithPlusSign)))
                                                     )));
-
-            return response;
+ 
         }
     }
 }

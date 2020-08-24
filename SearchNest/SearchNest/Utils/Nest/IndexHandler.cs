@@ -19,8 +19,12 @@ namespace SearchNest.Utils.Nest
                             .Map<Document>(m => m.AutoMap()
                              .Properties(pps => pps 
                                 .Number(s => s
-                                .Name(e => e.Id)
-                            ))));
+                                    .Name(e => e.Id))
+                                .Text(t => t
+                                .Name(n => n.Text)
+                                .Analyzer("whitespace")
+                                .Analyzer("lowercase")))));  
+                                
 
             return response;
 
