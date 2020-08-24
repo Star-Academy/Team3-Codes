@@ -25,6 +25,7 @@ namespace SearchNest
                 var processor = new Processor(new FileReader(path));
                 processor.SerializeDocuments();
                 // indexHandler.BulkDocs(processor.GetDocuments());
+                Console.WriteLine("Please enter the sentence you wish to search : ");
                 var responseOfSearchQuery = processor.doProcess(Console.ReadLine(), client, "documents");
                 if (responseOfSearchQuery.IsValid)
                     ConsolePrinter.PrintNameOfSuitableDocs(responseOfSearchQuery);
