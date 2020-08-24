@@ -3,17 +3,23 @@ namespace SearchNest.Model
 {
     public class Document
     {
-        public Document(string text, int id)
+        public Document(string text, int id , string name)
         {
-            this.Text = text;
-            this.ID = id;
+            Text = text;
+            Id = id;
+            Name = name;
+            
         }
 
         [JsonPropertyName("id")]
-        public int ID { get; set; }
+        public int Id { get; set; }
 
         [JsonPropertyName("text")]
         public string Text { get; set; }
+
+        [JsonPropertyName("name")]
+        public string Name { get; set; }
+
 
     }
 }
