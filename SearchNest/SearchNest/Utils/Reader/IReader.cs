@@ -3,6 +3,7 @@ namespace SearchNest.Utils.Reader
     public interface IReader
     {
         bool MoveNext();
-        string Current();
+        string CurrentText();
+        string CurrentName();
     }
 }

@@ -19,6 +19,7 @@ namespace Search
 
             foreach (var integer in processor.Process(Console.ReadLine(), numberOfDocs))
                 Console.Write($"{integer} ");
+              Console.Write(processor.Process(Console.ReadLine(), numberOfDocs).Count);
         }
     }
 };

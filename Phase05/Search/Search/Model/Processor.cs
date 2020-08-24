@@ -9,7 +9,7 @@ namespace Search.Model
         private  IReader reader;
         Regex PLUS_REGEX = new Regex("(\\+)(\\w*)");
         Regex MINUS_REGEX = new Regex("(-)(\\w*)");
-        Regex NONE_SIGN_REGEX =new Regex("^(\\w+)");
+        Regex NONE_SIGN_REGEX =new Regex("( |^)(\\w+)");
 
     public Processor(IReader reader) {
 
@@ -36,7 +36,7 @@ namespace Search.Model
 
         var wordsWithPlusSign = RegexOperator.AssortTheWords(input, PLUS_REGEX, 2);
         var wordsWithMinusSign = RegexOperator.AssortTheWords(input, MINUS_REGEX, 2);
-        var noneSignWords = RegexOperator.AssortTheWords(input, NONE_SIGN_REGEX, 1);
+        var noneSignWords = RegexOperator.AssortTheWords(input, NONE_SIGN_REGEX, 2);
 
         var and = new And();
         var or = new Or();

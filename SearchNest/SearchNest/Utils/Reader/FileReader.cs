@@ -17,24 +17,14 @@ namespace SearchNest.Utils.Reader
             return files.MoveNext();
         }
 
-        public string Current()
+        public string CurrentText()
         {
             return File.ReadAllText(files.Current);
         }
-
-        public override bool Equals(object obj)
+        public string CurrentName()
         {
-            return base.Equals(obj);
+            return Path.GetFileName(files.Current.ToString()); 
         }
 
-        public override int GetHashCode()
-        {
-            return base.GetHashCode();
-        }
-
-        public override string ToString()
-        {
-            return base.ToString();
-        }
     }
 }
