@@ -32,20 +32,20 @@ namespace SearchNest.Utils
             while (reader.MoveNext())
             {
                 string text = reader.CurrentText();
-                var document = new Document(text,i,reader.CurrentName());
+                var document = new Document(text, i, reader.CurrentName());
                 documents.Add(document);
                 i++;
             }
             return i; // return number of documents
         }
 
-        public IResponse Process(string input, ElasticClient client, string index)
+        public ISearchResponse<Document> doProcess(string input, ElasticClient client, string index)
         {
             string wordsWithPlusSign = RegexOperator.AssortTheWords(input, PLUS_REGEX, 2);
             string wordsWithMinusSign = RegexOperator.AssortTheWords(input, MINUS_REGEX, 2);
             string noneSignWords = RegexOperator.AssortTheWords(input, NONE_SIGN_REGEX, 1);
-            var query = new SearchQuery(client,index);
-            return query.SearchForAllWords(wordsWithPlusSign,wordsWithMinusSign,noneSignWords);
+            var query = new SearchQuery(client, index);
+            return query.SearchForAllWords(wordsWithPlusSign, wordsWithMinusSign, noneSignWords);
         }
     }
 }

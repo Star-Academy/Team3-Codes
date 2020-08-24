@@ -30,13 +30,13 @@ namespace SearchNest.Utils.Nest
                                                 .Match(match => match
                                                     .Field(p => p.Text)
                                                     .Query(wordsWithPlusSign)
-                                                    .MinimumShouldMatch(1)))        
+                                                    .MinimumShouldMatch(1)))
                                             .MustNot(must => must
                                                 .Match(match => match
                                                     .Field(p => p.Text)
                                                     .Query(wordsWithMinusSign)))
                                                     )));
- 
+
         }
     }
 }
