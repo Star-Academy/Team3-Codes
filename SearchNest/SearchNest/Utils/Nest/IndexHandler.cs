@@ -15,32 +15,12 @@ namespace SearchNest.Utils.Nest
         }
         public CreateIndexResponse CreateMapping()
         {
-            var response = client.Indices.Create(index,
-                    s => s.Settings(settings => settings
-                        .Setting("max_ngram_diff", 7)
-                        .Analysis(analysis => analysis
-                            .TokenFilters(tf => tf
-                                .NGram("my-ngram-filter", ng => ng
-                                    .MinGram(3)
-                                    .MaxGram(10)))
-                            .Analyzers(analyzer => analyzer
-                                .Custom("my-ngram-analyzer", custom => custom
-                                    .Tokenizer("standard")
-                                    .Filters("lowercase", "my-ngram-filter")))))
-                            .Map<Document>(m => m
-                                .Properties(pr => pr
-                                        .Number(t => t
-                                            .Name(n => n.ID)
-                                                .Fields(f => f
-                                                    .Text(ng => ng
-                                                    .Name("ngram")
-                                                    .Analyzer("my-ngram-analyzer"))))
-                                        .Text(t => t
-                                            .Name(n => n.Text)
-                                                .Fields(f => f
-                                                    .Text(ng => ng
-                                                        .Name("ngram")
-                                                        .Analyzer("my-ngram-analyzer")))))));
+            var response = client.Indices.Create(index, c => c
+                            .Map<Document>(m => m.AutoMap()
+                             .Properties(pps => pps 
+                                .Number(s => s
+                                .Name(e => e.Id)
+                            ))));
 
             return response;
 
