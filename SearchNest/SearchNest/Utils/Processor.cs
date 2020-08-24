@@ -31,8 +31,8 @@ namespace SearchNest.Utils
             int i = 0;
             while (reader.MoveNext())
             {
-                string text = reader.Current();
-                var document = new Document(text, i);
+                string text = reader.CurrentText();
+                var document = new Document(text,i,reader.CurrentName());
                 documents.Add(document);
                 i++;
             }
