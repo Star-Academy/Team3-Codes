@@ -42,8 +42,8 @@ namespace SearchNest.Utils
         public ISearchResponse<Document> doProcess(string input, ElasticClient client, string index)
         {
             var wordsWithPlusSign = string.Join(" ",RegexOperator.AssortTheWords(input, PLUS_REGEX, 2));
-            string wordsWithMinusSign = string.Join(" ",RegexOperator.AssortTheWords(input, MINUS_REGEX, 2));
-            string noneSignWords = string.Join(" ",RegexOperator.AssortTheWords(input, NONE_SIGN_REGEX, 1));
+            var wordsWithMinusSign = string.Join(" ",RegexOperator.AssortTheWords(input, MINUS_REGEX, 2));
+            var noneSignWords = string.Join(" ",RegexOperator.AssortTheWords(input, NONE_SIGN_REGEX, 1));
             var query = new SearchQuery(client, index);
             return query.SearchForAllWords(wordsWithPlusSign, wordsWithMinusSign, noneSignWords);
         }

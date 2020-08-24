@@ -15,19 +15,15 @@ namespace SearchNest.Utils.Nest
         }
         public CreateIndexResponse CreateMapping()
         {
-            var response = client.Indices.Create(index, c => c
+            return client.Indices.Create(index, c => c
                             .Map<Document>(m => m.AutoMap()
-                             .Properties(pps => pps 
+                             .Properties(pps => pps
                                 .Number(s => s
                                     .Name(e => e.Id))
                                 .Text(t => t
                                 .Name(n => n.Text)
                                 .Analyzer("whitespace")
-                                .Analyzer("lowercase")))));  
-                                
-
-            return response;
-
+                                .Analyzer("lowercase")))));
         }
 
         public void BulkDocs(List<Document> documents)
