@@ -17,22 +17,17 @@ namespace SearchNest
             connectionSettings.EnableDebugMode();
             var client = new ElasticClient(connectionSettings);
 
-            IResponse response = client.Ping();
-            if (client.Ping().IsValid)
-            {
-                var indexHandler = new IndexHandler("documents", client);
-                // indexHandler.CreateMapping();
-                var processor = new Processor(new FileReader(path));
-                processor.SerializeDocuments();
-                // indexHandler.BulkDocs(processor.GetDocuments());
-                Console.WriteLine("Please enter the sentence you wish to search : ");
-                var responseOfSearchQuery = processor.DoProcess(Console.ReadLine(), client, "documents");
-                if (responseOfSearchQuery.IsValid)
-                    ConsolePrinter.PrintNameOfSuitableDocs(responseOfSearchQuery);
-                else
-                    ResponseValidator.HandleException(responseOfSearchQuery);
-            }
-            else ResponseValidator.HandleException(response);
+            ResponseValidator.handleValidation(client.Ping(), "Connecting to Server");
+
+            var indexHandler = new IndexHandler("documents", client);
+            // indexHandler.CreateMapping();
+            var processor = new Processor(new FileReader(path));
+            processor.SerializeDocuments();
+            // indexHandler.BulkDocs(processor.GetDocuments());
+            Console.WriteLine("Please enter the sentence you wish to search : ");
+            var responseOfSearchQuery = processor.DoProcess(Console.ReadLine(), client, "documents");
+            ConsolePrinter.PrintNameOfSuitableDocs(responseOfSearchQuery);
+
 
         }
     }

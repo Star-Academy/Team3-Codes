@@ -12,7 +12,7 @@ namespace SearchNest.View
             var docs = response.Documents.OrderByDescending(s => s.Id).ToList();
             foreach (var doc in docs)
             {
-                Console.Write(doc.Id + " ");
+                Console.Write(doc.Name + " ");
             }
         }
     }

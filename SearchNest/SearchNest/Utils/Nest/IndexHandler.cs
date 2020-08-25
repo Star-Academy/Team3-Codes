@@ -13,9 +13,9 @@ namespace SearchNest.Utils.Nest
             this.index = index;
             this.client = client;
         }
-        public CreateIndexResponse CreateMapping()
+        public void CreateMapping()
         {
-            return client.Indices.Create(index, c => c
+            var response = client.Indices.Create(index, c => c
                             .Map<Document>(m => m.AutoMap()
                              .Properties(pps => pps
                                 .Number(s => s
@@ -24,6 +24,9 @@ namespace SearchNest.Utils.Nest
                                 .Name(n => n.Text)
                                 .Analyzer("whitespace")
                                 .Analyzer("lowercase")))));
+
+            ResponseValidator.handleValidation(response , "Index Creating");
+
         }
 
         public void BulkDocs(List<Document> documents)
@@ -36,7 +39,7 @@ namespace SearchNest.Utils.Nest
                      .Document(doc)
                 );
             }
-            client.Bulk(bulkDescriptor);
+            ResponseValidator.handleValidation(client.Bulk(bulkDescriptor),"Bulking docs");
         }
     }
 }
