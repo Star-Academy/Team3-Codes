@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
-namespace Search.Model
+namespace SearchNest.Utils
 {
     public class RegexOperator
     {

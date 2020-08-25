@@ -1,4 +1,3 @@
-using System.Linq;
 using Nest;
 using SearchNest.Model;
 namespace SearchNest.Utils.Nest
@@ -23,13 +22,13 @@ namespace SearchNest.Utils.Nest
                                                 .Match(match => match
                                                     .Field(p => p.Text)
                                                     .Query(noneSignWords)
-                                                    .MinimumShouldMatch(noneSignWords.Split(" ").Count())
+                                                    .Operator(Operator.And)
                                                    ))
                                             .Must(must => must
                                                 .Match(match => match
                                                     .Field(p => p.Text)
                                                     .Query(wordsWithPlusSign)
-                                                    .MinimumShouldMatch(1)))
+                                                    ))
                                             .MustNot(must => must
                                                 .Match(match => match
                                                     .Field(p => p.Text)

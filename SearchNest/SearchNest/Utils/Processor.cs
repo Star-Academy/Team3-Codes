@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
-using Search.Model;
 using SearchNest.Utils.Reader;
 using SearchNest.Model;
 using SearchNest.Utils.Nest;
@@ -28,7 +27,7 @@ namespace SearchNest.Utils
 
         public int SerializeDocuments()
         {
-            int i = 0;
+            var i = 0;
             while (reader.MoveNext())
             {
                 var text = reader.CurrentText();
@@ -39,7 +38,7 @@ namespace SearchNest.Utils
             return i; // return number of documents
         }
 
-        public ISearchResponse<Document> doProcess(string input, ElasticClient client, string index)
+        public ISearchResponse<Document> DoProcess(string input, ElasticClient client, string index)
         {
             var wordsWithPlusSign = string.Join(" ",RegexOperator.AssortTheWords(input, PLUS_REGEX, 2));
             var wordsWithMinusSign = string.Join(" ",RegexOperator.AssortTheWords(input, MINUS_REGEX, 2));

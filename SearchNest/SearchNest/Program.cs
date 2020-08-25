@@ -26,13 +26,13 @@ namespace SearchNest
                 processor.SerializeDocuments();
                 // indexHandler.BulkDocs(processor.GetDocuments());
                 Console.WriteLine("Please enter the sentence you wish to search : ");
-                var responseOfSearchQuery = processor.doProcess(Console.ReadLine(), client, "documents");
+                var responseOfSearchQuery = processor.DoProcess(Console.ReadLine(), client, "documents");
                 if (responseOfSearchQuery.IsValid)
                     ConsolePrinter.PrintNameOfSuitableDocs(responseOfSearchQuery);
                 else
-                    ResponseValidator.handleException(responseOfSearchQuery);
+                    ResponseValidator.HandleException(responseOfSearchQuery);
             }
-            else ResponseValidator.handleException(response);
+            else ResponseValidator.HandleException(response);
 
         }
     }

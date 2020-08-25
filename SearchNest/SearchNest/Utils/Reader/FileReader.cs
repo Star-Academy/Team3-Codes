@@ -23,7 +23,7 @@ namespace SearchNest.Utils.Reader
         }
         public string CurrentName()
         {
-            return Path.GetFileName(files.Current.ToString()); 
+            return Path.GetFileName(files.Current); 
         }
 
     }
