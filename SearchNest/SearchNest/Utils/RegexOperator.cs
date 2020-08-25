@@ -5,7 +5,7 @@ namespace SearchNest.Utils
 {
     public class RegexOperator
     {
-        public static List<string> AssortTheWords(string input, Regex regex, int groupOfWordInRegex)
+        public static IEnumerable<string> AssortTheWords(string input, Regex regex, int groupOfWordInRegex)
         {
             var wordsThatMatch = new List<string>();
             var matches = regex.Matches(input);
