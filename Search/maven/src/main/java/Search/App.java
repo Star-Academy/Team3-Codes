@@ -8,7 +8,6 @@ public class App {
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
-
         try {
 
             FileReader reader = new FileReader("maven\\src\\main\\resources\\Docs");
