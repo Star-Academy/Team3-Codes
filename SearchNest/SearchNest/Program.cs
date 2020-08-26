@@ -13,8 +13,7 @@ namespace SearchNest
         static void Main(string[] args)
         {
             var uri = new Uri("http://localhost:9200");
-            var connectionSettings = new ConnectionSettings(uri);
-            connectionSettings.EnableDebugMode();
+            var connectionSettings = new ConnectionSettings(uri).EnableDebugMode();
             var client = new ElasticClient(connectionSettings);
 
             ResponseValidator.handleValidation(client.Ping(), "Connecting to Server");
