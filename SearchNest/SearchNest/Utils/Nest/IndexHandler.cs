@@ -6,6 +6,7 @@ namespace SearchNest.Utils.Nest
 {
     public class IndexHandler
     {
+        
         private readonly string index;
         private readonly ElasticClient client;
         public IndexHandler(string index, ElasticClient client)
