@@ -23,7 +23,7 @@ namespace Learning.Controllers
         [HttpPost]
         public IActionResult Get1([FromBody] string message)
         {
-            return Ok(message);
+            return Ok(new string (message+" my friend"));
         }
     }
 }

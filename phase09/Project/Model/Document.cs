@@ -3,12 +3,12 @@ namespace SearchNest.Model
 {
     public class Document
     {
-        public Document(string text, int id , string name)
+        public Document(string text, int id, string name)
         {
             Text = text;
             Id = id;
             Name = name;
-            
+
         }
 
         [JsonPropertyName("id")]

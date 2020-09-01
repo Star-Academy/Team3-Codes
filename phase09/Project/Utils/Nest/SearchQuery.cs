@@ -36,8 +36,8 @@ namespace SearchNest.Utils.Nest
                                                    .Query(wordsWithMinusSign)))
                                                    )));
 
-            ResponseValidator.handleValidation(response,TOPIC_OF_SEARCHING_QUERY_REQUEST);
-            return response ;
+            ResponseValidator.handleValidation(response, TOPIC_OF_SEARCHING_QUERY_REQUEST);
+            return response;
 
         }
     }
