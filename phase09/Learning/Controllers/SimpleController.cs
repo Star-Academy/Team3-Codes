@@ -1,20 +1,29 @@
+using Learning.Model;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Example.Controllers
+namespace Learning.Controllers
 {
     [ApiController]
     [Route("[controller]/[Action]")]
     public class SimpleController : ControllerBase
     {
-        [HttpGet]
-        public string Get()
+        private readonly IPerson person;
+
+        public SimpleController(IPerson person)
         {
-            return "Hello world!";
+            this.person = person;
         }
+
         [HttpGet]
-        public string newGet()
+        public IActionResult Get()
         {
-            return "Hello world more :)!";
+            return Ok(new Student().GetPerson());
+        }
+
+        [HttpPost]
+        public IActionResult Get1([FromBody] string message)
+        {
+            return Ok(message);
         }
     }
 }
