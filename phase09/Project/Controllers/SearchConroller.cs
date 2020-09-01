@@ -9,6 +9,12 @@ namespace Project.Controllers
     {
 
 
+        [HttpGet]
+        public IActionResult Get()
+        {
+            return Ok("Hi");
+        }
+
         [HttpPost]
         public IActionResult GetMatchedResult([FromBody] string input)
         {
