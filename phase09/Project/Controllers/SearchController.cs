@@ -5,17 +5,10 @@ namespace Project.Controllers
 {
     [ApiController]
     [Route("[controller]/[Action]")]
-    public class SearchConroller : ControllerBase
+    public class SearchController : ControllerBase
     {
 
-
-        [HttpGet]
-        public IActionResult Get()
-        {
-            return Ok("Hi");
-        }
-
-        [HttpPost]
+         [HttpPost]
         public IActionResult GetMatchedResult([FromBody] string input)
         {
             var manager = new Manager();
