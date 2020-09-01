@@ -8,7 +8,7 @@ namespace Project.Controllers
     public class SearchController : ControllerBase
     {
 
-         [HttpPost]
+        [HttpPost]
         public IActionResult GetMatchedResult([FromBody] string input)
         {
             var manager = new Manager();

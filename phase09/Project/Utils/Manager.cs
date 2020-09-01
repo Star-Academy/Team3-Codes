@@ -28,7 +28,7 @@ namespace Project.Utils
                 indexHandler.InitIndexByDocuments<Document>(processor.GetDocuments());
             }
 
-            var responseOfSearchQuery = processor.DoProcessOfSearch(Console.ReadLine(), client, "documents");
+            var responseOfSearchQuery = processor.DoProcessOfSearch(input, client, "documents");
             return responseOfSearchQuery.Documents.OrderByDescending(s => s.Id).Select(d =>d.Name);
 
         }
