@@ -6,12 +6,19 @@ namespace SearchNest.Utils.Nest
 {
     public class IndexHandler
     {
-        string index;
-        ElasticClient client;
+        private const string TOPIC_OF_CEARTING_INDEX_REQUEST = "Index Creating";
+        private const string TOPIC_OF_BULKING_DOCS_REQUEST = "Bulking docs";
+        private string index;
+        private ElasticClient client;
         public IndexHandler(string index, ElasticClient client)
         {
             this.index = index;
             this.client = client;
+        }
+        public void InitIndexByDocuments<T>(List<T> documents) where T : class
+        {
+                CreateMapping();
+                BulkDocs(documents);
         }
         public void CreateMapping()
         {
@@ -25,21 +32,22 @@ namespace SearchNest.Utils.Nest
                                 .Analyzer("whitespace")
                                 .Analyzer("lowercase")))));
 
-            ResponseValidator.handleValidation(response , "Index Creating");
+            ResponseValidator.handleValidation(response, TOPIC_OF_CEARTING_INDEX_REQUEST);
 
         }
 
-        public void BulkDocs(List<Document> documents)
+        public void BulkDocs<T>(List<T> documents) where T : class
         {
             var bulkDescriptor = new BulkDescriptor();
             foreach (var doc in documents)
             {
-                bulkDescriptor.Index<Document>(x => x
+                bulkDescriptor.Index<T>(x => x
                     .Index(index)
                      .Document(doc)
                 );
             }
-            ResponseValidator.handleValidation(client.Bulk(bulkDescriptor),"Bulking docs");
+            ResponseValidator.handleValidation(client.Bulk(bulkDescriptor), TOPIC_OF_BULKING_DOCS_REQUEST);
         }
+
     }
 }
