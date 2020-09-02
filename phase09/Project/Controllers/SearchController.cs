@@ -12,9 +12,7 @@ namespace Project.Controllers
         public IActionResult GetMatchedResult([FromBody] string input)
         {
             var search = new Search();
-            search.Connect();
             search.InitializeIndex();
-
             var result = search.SearchForSuitableDocs(input);
             return Ok(result);
         }

@@ -11,15 +11,19 @@ namespace Project.Utils
 {
     public class Search
     {
-        private static readonly string path = "Resources";
+        private static readonly string path = "..\\..\\SearchNest\\SearchNest\\Resources";
         private IndexHandler indexHandler;
         private ElasticClient client ;
         private Processor processor ;
 
         public Search()
         {
+            Connect();
             this.indexHandler = new IndexHandler("documents", client);
             this.processor = new Processor(new FileReader(path));
+        }
+        public void init(){
+            
         }
 
         public void Connect()
