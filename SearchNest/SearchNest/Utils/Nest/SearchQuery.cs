@@ -4,9 +4,8 @@ namespace SearchNest.Utils.Nest
 {
     public class SearchQuery
     {
-        private const string TOPIC_OF_SEARCHING_QUERY_REQUEST = "Searching Query";
-        private ElasticClient client;
-        private string index;
+        ElasticClient client;
+        string index;
         public SearchQuery(ElasticClient client, string index)
         {
             this.client = client;
@@ -23,7 +22,7 @@ namespace SearchNest.Utils.Nest
                                                .Match(match => match
                                                    .Field(p => p.Text)
                                                    .Query(noneSignWords)
-                                                   .Operator(Operator.And)
+                                                   .MinimumShouldMatch(noneSignWords.Split(" ").Length)
                                                   ))
                                            .Must(must => must
                                                .Match(match => match
@@ -36,7 +35,7 @@ namespace SearchNest.Utils.Nest
                                                    .Query(wordsWithMinusSign)))
                                                    )));
 
-            ResponseValidator.handleValidation(response,TOPIC_OF_SEARCHING_QUERY_REQUEST);
+            ResponseValidator.handleValidation(response,"Searching Query");
             return response ;
 
         }
