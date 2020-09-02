@@ -9,28 +9,40 @@ using SearchNest.Utils.Reader;
 
 namespace Project.Utils
 {
-    public class Manager
+    public class Search
     {
         private static readonly string path = "Resources";
-        public IEnumerable<string> Search(string input){
+        private IndexHandler indexHandler;
+        private ElasticClient client ;
+        private Processor processor ;
 
+        public Search()
+        {
+            this.indexHandler = new IndexHandler("documents", client);
+            this.processor = new Processor(new FileReader(path));
+        }
+
+        public void Connect()
+        {
             var uri = new Uri("http://localhost:9200");
             var connectionSettings = new ConnectionSettings(uri).EnableDebugMode();
-            var client = new ElasticClient(connectionSettings);
+            client = new ElasticClient(connectionSettings);
             ResponseValidator.handleValidation(client.Ping(), "Connecting to Server");
+        }
 
-            var indexHandler = new IndexHandler("documents", client);
-            var processor = new Processor(new FileReader(path));
+        public void InitializeIndex()
+        {
 
             if (!client.Indices.Exists("documents").Exists)
             {
                 processor.SerializeDocuments();
                 indexHandler.InitIndexByDocuments<Document>(processor.GetDocuments());
             }
+        }
 
+        public IEnumerable<string> SearchForSuitableDocs(string input){
             var responseOfSearchQuery = processor.DoProcessOfSearch(input, client, "documents");
-            return responseOfSearchQuery.Documents.OrderByDescending(s => s.Id).Select(d =>d.Name);
-
+            return responseOfSearchQuery.Documents.OrderByDescending(s => s.Id).Select(d => d.Name);
         }
     }
 }

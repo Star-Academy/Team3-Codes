@@ -11,8 +11,11 @@ namespace Project.Controllers
         [HttpPost]
         public IActionResult GetMatchedResult([FromBody] string input)
         {
-            var manager = new Manager();
-            var result = manager.Search(input);
+            var search = new Search();
+            search.Connect();
+            search.InitializeIndex();
+
+            var result = search.SearchForSuitableDocs(input);
             return Ok(result);
         }
 

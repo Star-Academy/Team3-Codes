@@ -5,8 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Nest" Version="7.9.0" />
+    <ProjectReference Include="..\..\SearchNest\SearchNest\SearchNest.csproj" />
   </ItemGroup>
-
 
 </Project>
