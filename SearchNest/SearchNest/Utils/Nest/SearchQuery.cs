@@ -4,6 +4,7 @@ namespace SearchNest.Utils.Nest
 {
     public class SearchQuery
     {
+        private readonly string queryResponceString = "Searching Query";
         ElasticClient client;
         string index;
         public SearchQuery(ElasticClient client, string index)
@@ -35,7 +36,7 @@ namespace SearchNest.Utils.Nest
                                                    .Query(wordsWithMinusSign)))
                                                    )));
 
-            ResponseValidator.handleValidation(response,"Searching Query");
+            ResponseValidator.handleValidation(response,queryResponceString);
             return response ;
 
         }
