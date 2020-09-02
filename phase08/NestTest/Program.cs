@@ -14,16 +14,13 @@ namespace NestTest
             connectionSettings.EnableDebugMode();
             var client = new ElasticClient (connectionSettings);
             var response = client.Ping();
-            // var reader = new JsonReader();
-            // var people = reader.Read(pathOfPeopleJson);
-            // Console.Write(IndexHandler.CreateMapping(client));
-            // BulkPeople(people, "people", client);
+            var reader = new JsonReader();
+            var people = reader.Read(pathOfPeopleJson);
+            Console.Write(IndexHandler.CreateMapping(client));
+            BulkPeople(people, "people", client);
             var query = new Query(client,"people");
             var searchResponse = query.AggregationQuerySample() ;
             var terms = searchResponse.Aggregations.Terms("colors");
-                
-              
-
         }
 
         public static void BulkPeople(List<Person> people, string index, ElasticClient client)
