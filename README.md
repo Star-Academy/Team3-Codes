@@ -23,5 +23,5 @@ Getting started with CI and CD pipelines and Creating a search console app.
 Introduction to Elasticsearch and Kibana.
 ### Phase Eight
 Introduction to Nest library, Phase eight project : Implement the search project with the use of Nest library.
-
-
+### Phase Nine
+Introduction to HTML, CSS, JavaScript and Angular, Phase nine project : Rewrite our search website code and use Angular for our website.
