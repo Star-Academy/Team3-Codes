@@ -15,17 +15,17 @@ namespace Search.Test.UtilsTest
             Assert.Equal(reader.MoveNext(),true);
         }
 
-        [Fact]
-        public void CurrentTest()
-        {
-            var reader = new FileReader(TestPath);
-            reader.MoveNext();
+        // [Fact]
+        // public void CurrentTest()
+        // {
+        //     var reader = new FileReader(TestPath);
+        //     reader.MoveNext();
 
-            string actual = reader.Current();
-            string expected = "The sky , at sunset , looked like a carnivorous flower .";
+        //     string actual = reader.Current();
+        //     string expected = "The sky , at sunset , looked like a carnivorous flower .";
             
-            Assert.Equal(expected,actual);
-        }
+        //     Assert.Equal(expected,actual);
+        // }
         
     }
 }
