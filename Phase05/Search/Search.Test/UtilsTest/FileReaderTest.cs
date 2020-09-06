@@ -24,7 +24,7 @@ namespace Search.Test.UtilsTest
             string actual = reader.Current();
             string expected = "The sky , at sunset , looked like a carnivorous flower .";
             
-            Assert.Equal(1,1);
+            Assert.Equal(1, 1);
         }
         
     }
