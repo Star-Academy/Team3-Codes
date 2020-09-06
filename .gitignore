@@ -96,7 +96,7 @@ StyleCopReport.xml
 *.pidb
 *.svclog
 *.scc
-
+.Learning
 # Chutzpah Test files
 _Chutzpah*
 
@@ -745,3 +745,4 @@ ASALocalRun/
 
 # BeatPulse healthcheck temp database
 healthchecksdb
+phase09/Learning/
