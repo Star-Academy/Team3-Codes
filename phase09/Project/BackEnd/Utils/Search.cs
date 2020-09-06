@@ -11,7 +11,7 @@ namespace Project.Utils
 {
     public class Search
     {
-        private static readonly string path = "..\\..\\SearchNest\\SearchNest\\Resources";
+        private static readonly string path = "..\\..\\..\\SearchNest\\SearchNest\\Resources";
         private IndexHandler indexHandler;
         private ElasticClient client ;
         private Processor processor ;
