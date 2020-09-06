@@ -44,9 +44,9 @@ namespace Project.Utils
             }
         }
 
-        public IEnumerable<string> SearchForSuitableDocs(string input){
+        public IEnumerable<Document> SearchForSuitableDocs(string input){
             var responseOfSearchQuery = processor.DoProcessOfSearch(input, client, "documents");
-            return responseOfSearchQuery.Documents.OrderByDescending(s => s.Id).Select(d => d.Name);
+            return responseOfSearchQuery.Documents.OrderByDescending(s => s.Id);
         }
     }
 }
