@@ -25,14 +25,13 @@ function displayDocs(docs) {
     let counter = 1;
     for (const doc of docs) {
         template += 
-                `<button type="button" class="collapsible">${doc.name}</button>
+                `<button type="button" class="collapsible"> <b>${counter}</b>      ${doc.name}      +</button>
                 <div class="content">
                  <p>
                     ${doc.text}
                 </p>
                 </div>
-               
-                <b>${counter}</b>`;
+               `;
         counter++;
     }
 
