@@ -2,9 +2,6 @@ function checkForEnter(event) {
     if (event.key === 'Enter') {
         const input = document.querySelector('.search-input');
         const value = input.value;
-        const request = {
-            city: value
-        };
 
         const xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
@@ -15,6 +12,6 @@ function checkForEnter(event) {
         xhttp.open('POST', 'https://localhost:5001/Search/GetMatchedResult');
         xhttp.setRequestHeader('Content-type', 'application/json');
         xhttp.responseType = 'json';
-        xhttp.send(JSON.stringify(request));
+        xhttp.send(JSON.stringify(value));
     }
 }
