@@ -9,7 +9,7 @@ function checkForEnter(event) {
         const xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
             if (this.readyState === 4 && this.status === 200) {
-                //
+                console.log(this.response);
             }
         };
         xhttp.open('POST', 'https://localhost:5001/Search/GetMatchedResult');
