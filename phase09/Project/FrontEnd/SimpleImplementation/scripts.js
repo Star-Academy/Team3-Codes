@@ -1,10 +1,7 @@
-function checkForEnter(event) {
+function checkForEnter(event, selectorName) {
     if (event.key === 'Enter') {
-        const input = document.querySelector('.search-input');
+        const input = document.querySelector(selectorName);
         const value = input.value;
-        const request = {
-            input: value
-        };
 
         const xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
@@ -54,7 +51,7 @@ function displayDocs(docs) {
 }
 function makeSearchBar() {
     return `<div class="search-bar">
-    <input class="search-bar" type="text" name="search" placeholder="Search another string" onkeyup="checkForEnter(event)" />
+    <input class="search-bar" type="text" name="search" placeholder="Search another string" onkeyup="checkForEnter(event,'.search-bar')" />
     </div>`;
 }
 
