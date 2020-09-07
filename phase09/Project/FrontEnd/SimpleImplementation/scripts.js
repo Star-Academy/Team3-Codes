@@ -21,17 +21,18 @@ function checkForEnter(event) {
 
 function displayDocs(docs) {
     let template = '';
+    template+=makeSearchBar();
 
     let counter = 1;
     for (const doc of docs) {
-        template += 
-                `<button type="button" class="collapsible"> <b>${counter}</b>      ${doc.name}      +</button>
-                <div class="content">
-                 <p>
-                    ${doc.text}
-                </p>
-                </div>
-               `;
+        template +=
+            `<button type="button" class="collapsible"> <h3>${counter} &nbsp;&#8594; &nbsp;${doc.name} </h3></button>
+        <div class="content">
+         <p>
+            ${doc.text}
+        </p>
+        </div>
+       `;
         counter++;
     }
 
@@ -51,6 +52,10 @@ function displayDocs(docs) {
         });
     }
 }
-
+function makeSearchBar() {
+    return `<div class="search-bar">
+    <input class="search-bar" type="text" name="search" placeholder="Search another string" onkeyup="checkForEnter(event)" />
+    </div>`;
+}
 
 

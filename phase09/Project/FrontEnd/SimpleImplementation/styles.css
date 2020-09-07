@@ -19,7 +19,8 @@ body {
   font-family: Google;
 }
 
-.search-input {
+.search-input 
+ {
   margin-left: 440px;
   width: 400px;
   height: 50px;
@@ -32,27 +33,44 @@ body {
   padding: 0 20px;
 }
 
-.collapsible {
-  background-color: #777;
-  color: white;
-  cursor: pointer;
-  padding: 18px;
-  width: 50%;
-  border: none;
-  text-align: left;
+.search-bar 
+ {
+  margin : 4% 22%;
+  width:50%;
+  height: 50px;
+  border-radius: 22px;
+  box-sizing: border-box;
+  font-size: 16px;
+  opacity: 1;
   outline: none;
-  font-size: 15px;
+  position: relative;
+  transition: none;
+  padding: 0 1.5%;
 }
 
-.active, .collapsible:hover {
-  background-color: #555;
-}
-
-.content {
-  padding: 18px;
-  display: none;
-  width: 50%;
-  overflow: hidden;
-  background-color: #f1f1f1;
-}
-
+.collapsible{
+  background-color:#777;
+  color:white;
+  cursor:pointer;
+  padding:0% 1.5%;
+  width:50%;
+  display: inline-block ;
+  margin: 2% 20% 0% 20%;
+  border:none;
+  text-align:center;
+  outline:none;
+  font-size:15px;
+  }
+   
+  .active,.collapsible:hover{
+  background-color:#555;
+  }
+   
+  .content{
+  padding:1.5%;
+  display:none;
+  width:47%;
+  margin: 0% 20%;
+  overflow:hidden;
+  background-color:#f1f1f1;
+  }
