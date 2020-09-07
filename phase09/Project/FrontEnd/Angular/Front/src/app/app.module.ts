@@ -7,6 +7,8 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { ResultPageComponent } from './result-page/result-page.component';
 import { SearchBarComponent } from './search-bar/search-bar.component';
 import { DocsComponent } from './docs/docs.component';
+import { FormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -18,7 +20,8 @@ import { DocsComponent } from './docs/docs.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

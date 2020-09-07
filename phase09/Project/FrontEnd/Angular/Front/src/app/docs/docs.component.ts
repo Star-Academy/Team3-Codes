@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Doc } from './models/doc';
 
 @Component({
   selector: 'app-docs',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./docs.component.scss']
 })
 export class DocsComponent implements OnInit {
+  @Input()
+  public docs: Doc[] = [];
 
   constructor() { }
 

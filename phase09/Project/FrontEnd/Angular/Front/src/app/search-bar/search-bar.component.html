@@ -1,1 +1,3 @@
-<p>search-bar works!</p>
+<div class="search-wrapper">
+    <input class="search-input" type="text" name="search" placeholder="جستجو" [(ngModel)]= "value"(keyup)="checkForEnter($event)"/>
+  </div>
