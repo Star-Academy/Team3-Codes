@@ -5,8 +5,10 @@
     font-weight: normal;
   }
   
-//   body {
-//     background: url(./assets/images/1.jpg);
-//     background-repeat: no-repeat;
-//     background-size: 100% 200%;
-//   }
+  body {
+    background: url(./assets/images/1.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+  }
