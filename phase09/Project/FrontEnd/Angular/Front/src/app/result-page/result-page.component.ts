@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DocsComponent } from '../docs/docs.component';
 
 @Component({
   selector: 'app-result-page',
@@ -10,6 +11,7 @@ export class ResultPageComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+  
   }
 
 }

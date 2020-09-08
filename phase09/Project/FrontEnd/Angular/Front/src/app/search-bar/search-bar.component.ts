@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
 
 // import { Router } from'@angular/router';
 
@@ -12,6 +12,7 @@ export class SearchBarComponent implements OnInit {
 
     @Output()
     public searched = new EventEmitter<string>();
+    @Input() style : 'home' | 'result' = 'home';
   
     public value = '';
   
