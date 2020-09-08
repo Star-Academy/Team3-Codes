@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Doc } from '../models/doc';
 
 @Component({
   selector: 'app-doc',
@@ -6,6 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./doc.component.scss']
 })
 export class DocComponent implements OnInit {
+
+  @Input() doc: Doc;
+
+public hidden = true;
 
   constructor() { }
 

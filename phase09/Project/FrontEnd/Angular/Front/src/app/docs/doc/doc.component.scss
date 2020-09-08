@@ -1,0 +1,27 @@
+.doc-name{
+  background-color:#777;
+  color:white;
+  cursor:pointer;
+  padding:0% 1.5%;
+  width:50%;
+  display: inline-block ;
+  margin: 2% 20% 0% 20%;
+  border:none;
+  text-align:center;
+  outline:none;
+  font-size:15px;
+
+  }
+
+  .doc-name:hover{
+  background-color:#555;
+  }
+
+  .doc-content{
+  padding:1.5%;
+  display:none;
+  width:47%;
+  margin: 0% 20%;
+  overflow:hidden;
+  background-color:#f1f1f1;
+  }
