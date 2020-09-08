@@ -8,6 +8,7 @@ import { ResultPageComponent } from './result-page/result-page.component';
 import { SearchBarComponent } from './search-bar/search-bar.component';
 import { DocsComponent } from './docs/docs.component';
 import { FormsModule } from '@angular/forms';
+import { DocComponent } from './doc/doc.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { FormsModule } from '@angular/forms';
     HomePageComponent,
     ResultPageComponent,
     SearchBarComponent,
-    DocsComponent
+    DocsComponent,
+    DocComponent
   ],
   imports: [
     BrowserModule,
