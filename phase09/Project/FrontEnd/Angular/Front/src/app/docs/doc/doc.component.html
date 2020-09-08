@@ -1,6 +1,10 @@
-<button type="button" class="doc-name" (click)="hidden = !hidden;"> <h3> <p>hiii</p>&nbsp;&#8594; &nbsp;${doc.name} </h3></button>
-        <div class="doc-content" [hidden]="hidden">
-         <p>
-            {{doc.content}}
-        </p>
-        </div>
+<button type="button" class="doc-name" (click)="hidden = !hidden">
+  <h3>
+    &nbsp;&#8594; &nbsp;{{doc.name}}
+  </h3>
+</button>
+<div class="doc-content" [hidden]="hidden">
+  <p>
+    {{ doc.content }}
+  </p>
+</div>

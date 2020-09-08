@@ -10,7 +10,7 @@ export class DocComponent implements OnInit {
 
   @Input() doc: Doc;
 
-public hidden = true;
+  public hidden = true;
 
   constructor() { }
 
