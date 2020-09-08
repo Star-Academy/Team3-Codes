@@ -7,9 +7,9 @@ export class DocService {
   constructor(private http: HttpClient) {
   }
 
-  public async getTours(searchkey: string): Promise<Doc[]> {
+  public async getDocs(searchedString: string): Promise<Doc[]> {
     return new Promise<Doc[]>((resolve) => {
-      this.http.post('https://localhost:44386/api/tour/search', { city: searchkey }).subscribe((result: Tour[]) => {
+      this.http.post('https://localhost:5001/Search/GetMatchedResult', { Input: searchedString }).subscribe((result: Doc[]) => {
         resolve(result);
       });
     });

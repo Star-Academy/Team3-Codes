@@ -1,3 +1,5 @@
+using BackEnd.Model;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Project.Utils;
 
@@ -9,11 +11,11 @@ namespace Project.Controllers
     {
 
         [HttpPost]
-        public IActionResult GetMatchedResult([FromBody] string input)
+        public IActionResult GetMatchedResult([FromBody] InputString input)
         {
             var search = new Search();
             search.InitializeIndex();
-            var result = search.SearchForSuitableDocs(input);
+            var result = search.SearchForSuitableDocs(input.Input);
             return Ok(result);
         }
 

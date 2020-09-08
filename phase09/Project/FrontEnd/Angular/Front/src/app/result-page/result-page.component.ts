@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { DocsComponent } from '../docs/docs.component';
 import { Doc } from '../docs/models/doc';
+import { DocService } from '../services/doc.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-result-page',
@@ -8,15 +9,21 @@ import { Doc } from '../docs/models/doc';
   styleUrls: ['./result-page.component.scss']
 })
 export class ResultPageComponent implements OnInit {
-  public docs: Doc[]=[ { "name": "name11111", "content": "salam javan irani" },
-  { "name": "name2", "content": "man ye parandam . arezoo daram" },
-  { "name": "name3", "content": "donya hame hich o ahl donya hame hich" },
-  { "name": "name4", "content": "miazar moori ke dane kesh ast" },
-  { "name": "name5", "content": "tan adami sharif ast be jan adamiat ? na:/ . hamin lebas zibast neshan adamiat" },];
-  constructor() { }
+  public docs: Doc[]=[];
 
-  ngOnInit(): void {
+  constructor(private service: DocService ,private router: Router,
+    private route: ActivatedRoute) { }
 
+  async ngOnInit() {
+  let searchedInput ;
+  this.route.queryParams.subscribe(params => {
+      searchedInput = params['input']})
+      console.log(searchedInput);
+  this.searchDoc(searchedInput) ;
+  }
+  public async searchDoc(input: string) {
+    this.docs = await this.service.getDocs(input);
+    console.log(this.docs);
   }
 
 }
