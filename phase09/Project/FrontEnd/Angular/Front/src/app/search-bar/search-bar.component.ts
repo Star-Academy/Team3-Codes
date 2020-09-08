@@ -1,6 +1,7 @@
 import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
-
-// import { Router } from'@angular/router';
+ import { Router, ActivatedRoute } from'@angular/router';
+import { AppRoutingModule } from '../app-routing.module';
+import { AppComponent } from '../app.component';
 
 
 @Component({
@@ -13,20 +14,21 @@ export class SearchBarComponent implements OnInit {
     @Output()
     public searched = new EventEmitter<string>();
     @Input() style : 'home' | 'result' = 'home';
-  
+
     public value = '';
-  
-    constructor() { }
-  
+
+    constructor() {}
+
     ngOnInit(): void {
     }
-  
+
     public checkForEnter(event: KeyboardEvent) {
       if (event.key === 'Enter') {
         console.log(this.value);
         this.searched.emit(this.value);
       }
     }
-  
+
+
   }
 
