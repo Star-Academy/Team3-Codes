@@ -4,8 +4,9 @@
 ![publish](https://github.com/Star-Academy/Team3-Codes/workflows/publish/badge.svg)
 ## Description
 Codes of Team Three in the Code Star Academy Internship
-## Contributers
-Kimia Noorbakhsh, Mahla Sharifi
+## Team members : 
+Kimia Noorbakhsh
+Mahla Sharifi
 ## Phases 
 ### Phase One
 Implementing Inverted Index search on text documents on The 20 Newsgroups data set.
