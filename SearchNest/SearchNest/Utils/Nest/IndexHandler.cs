@@ -10,6 +10,8 @@ namespace SearchNest.Utils.Nest
         private const string TOPIC_OF_BULKING_DOCS_REQUEST = "Bulking docs";
         private string index;
         private ElasticClient client;
+
+
         public IndexHandler(string index, ElasticClient client)
         {
             this.index = index;

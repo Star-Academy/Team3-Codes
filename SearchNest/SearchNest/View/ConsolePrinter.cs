@@ -10,10 +10,8 @@ namespace SearchNest.View
         public static void PrintNameOfSuitableDocs(ISearchResponse<Document> response)
         {
             var docs = response.Documents.OrderByDescending(s => s.Id).ToList();
-            foreach (var doc in docs)
-            {
-                Console.Write(doc.Name + " ");
-            }
+            var line = string.Join(' ', docs.Select(d => d.Name));
+            Console.Write(line);
         }
     }
 }

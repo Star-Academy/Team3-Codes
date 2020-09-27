@@ -8,7 +8,6 @@
         <Company>Star Academy</Company>
   </PropertyGroup>
 
-
   <ItemGroup>
     <PackageReference Include="Nest" Version="7.9.0" />
   </ItemGroup>
