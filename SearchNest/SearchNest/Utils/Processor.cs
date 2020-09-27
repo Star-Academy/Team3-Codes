@@ -37,12 +37,12 @@ namespace SearchNest.Utils
             }
             return i; // return number of documents
         }
-
-        public ISearchResponse<Document> DoProcess(string input, ElasticClient client, string index)
+        public ISearchResponse<Document> DoProcessOfSearch(string input, ElasticClient client, string index)
         {
             var wordsWithPlusSign = string.Join(" ",RegexOperator.AssortTheWords(input, PLUS_REGEX, 2));
             var wordsWithMinusSign = string.Join(" ",RegexOperator.AssortTheWords(input, MINUS_REGEX, 2));
-            var noneSignWords = string.Join(" ",RegexOperator.AssortTheWords(input, NONE_SIGN_REGEX, 1));
+            var noneSignWords = string.Join(" ",RegexOperator.AssortTheWords(input, NONE_SIGN_REGEX, 2));
+
             var query = new SearchQuery(client, index);
             return query.SearchForAllWords(wordsWithPlusSign, wordsWithMinusSign, noneSignWords);
         }

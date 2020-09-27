@@ -18,26 +18,28 @@ namespace SearchNest.Utils.Nest
                                    .Index(index)
                                    .Size(1000)
                                    .Query(q => q
-                                       .Bool(b => b
-                                           .Must(must => must
-                                               .Match(match => match
-                                                   .Field(p => p.Text)
-                                                   .Query(noneSignWords)
-                                                   .Operator(Operator.And)
-                                                  ))
-                                           .Must(must => must
-                                               .Match(match => match
-                                                   .Field(p => p.Text)
-                                                   .Query(wordsWithPlusSign)
-                                                   ))
-                                           .MustNot(must => must
-                                               .Match(match => match
-                                                   .Field(p => p.Text)
-                                                   .Query(wordsWithMinusSign)))
-                                                   )));
+                                        .Bool(b => b
+                                            .Must(must => must
+                                                .Match(match => match
+                                                    .Field(d =>d.Text)
+                                                    .Query(noneSignWords)
+                                                    .MinimumShouldMatch(noneSignWords.Split(" ").Length))
+                                                ,
+                                                 must => must
+                                                .Match(match => match
+                                                    .Field(d =>d.Text)
+                                                    .Query(wordsWithPlusSign)
+                                                    ))
+                                            .MustNot(must => must
+                                                .Match(match => match
+                                                    .Field(p => p.Text)
+                                                    .Query(wordsWithMinusSign)))
+                                                    )));
+
 
             ResponseValidator.handleValidation(response,queryResponceString);
             return response ;
+
 
         }
     }
