@@ -1,8 +1,10 @@
-function checkForEnter(event, selectorName) {
+function checkForEnter(event) {
     if (event.key === 'Enter') {
-        const input = document.querySelector(selectorName);
-        const request = {
-            Innput: input.value
+        const input = document.querySelector('.search-input');
+        const value = input.value;
+        console.log(value);
+        const StringInput = {
+            Input:value
         };
 
         const xhttp = new XMLHttpRequest();
@@ -14,13 +16,12 @@ function checkForEnter(event, selectorName) {
         xhttp.open('POST', 'https://localhost:5001/Search/GetMatchedResult');
         xhttp.setRequestHeader('Content-type', 'application/json');
         xhttp.responseType = 'json';
-        xhttp.send(JSON.stringify(request));
+        xhttp.send(JSON.stringify(StringInput));
     }
 }
 
 function displayDocs(docs) {
     let template = '';
-    template+=makeSearchBar();
 
     let counter = 1;
     for (const doc of docs) {
@@ -50,11 +51,6 @@ function displayDocs(docs) {
             }
         });
     }
-}
-function makeSearchBar() {
-    return `<div class="search-bar">
-    <input class="search-bar" type="text" name="search" placeholder="Search another string" onkeyup="checkForEnter(event,'.search-bar')" />
-    </div>`;
 }
 
 
