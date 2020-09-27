@@ -1,0 +1,3 @@
+<div class="search-wrapper" [ngClass]="style === 'home' ? 'home-page-search-bar':'result-page-search-bar'">
+  <input class="search-input" type="text" name="Search something ..." placeholder="Search something ..." [(ngModel)]="value" (keyup)="checkForEnter($event)" />
+</div>

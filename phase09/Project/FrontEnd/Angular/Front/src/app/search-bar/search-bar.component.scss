@@ -1,0 +1,30 @@
+
+.search-input
+{
+ width: 30%;
+ border-radius: 22px;
+ box-sizing: border-box;
+ font-size: 22px;
+ opacity: 1;
+ position: relative;
+ transition: none;
+ margin-top: 0;
+ margin-right : 35%;
+ margin-left : 35%;
+ padding: 0.4% 2%;
+}
+.result-page-search-bar input[type=text]{
+    align-content: flex-start;
+    color:rgb(58, 38, 11);;
+    width: 40%;;
+    margin-left: 25%;
+    margin-top: 3%;;
+
+}
+.home-page-search-bar input[type=text]{
+    align-content: center;
+    color:rgb(58, 38, 11);;
+    width: 35%;
+    margin-left: 32%;
+   bottom: 30%;
+}

@@ -1,0 +1,10 @@
+<button type="button" class="doc-name" (click)="hidden = !hidden">
+  <h3>
+    &nbsp; &nbsp;{{doc.name}}
+  </h3>
+</button>
+<div class="doc-text" [hidden]="hidden">
+  <p>
+    {{doc.text}}
+</div>
+<!-- &#8594; -->
