@@ -1,7 +1,9 @@
 function checkForEnter(event, selectorName) {
     if (event.key === 'Enter') {
         const input = document.querySelector(selectorName);
-        const value = input.value;
+        const request = {
+            Innput: input.value
+        };
 
         const xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
@@ -12,7 +14,7 @@ function checkForEnter(event, selectorName) {
         xhttp.open('POST', 'https://localhost:5001/Search/GetMatchedResult');
         xhttp.setRequestHeader('Content-type', 'application/json');
         xhttp.responseType = 'json';
-        xhttp.send(JSON.stringify(value));
+        xhttp.send(JSON.stringify(request));
     }
 }
 

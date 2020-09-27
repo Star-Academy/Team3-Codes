@@ -16,5 +16,4 @@ export class HomePageComponent implements OnInit {
   public navigateToResultPageRoute(input :string){
     this.router.navigate(['/result'], { queryParams: { input: input } });
   }
-
 }

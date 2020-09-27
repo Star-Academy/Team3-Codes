@@ -23,7 +23,9 @@ export class ResultPageComponent implements OnInit {
   }
   public async searchDoc(input: string) {
     this.docs = await this.service.getDocs(input);
-    console.log(this.docs);
+  }
+  public navigateToResultPageRoute(input :string){
+    this.router.navigate(['/result'], { queryParams: { input: input } });
   }
 
 }
